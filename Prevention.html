@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevention</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Prevention.html" >Prevention</a></li>
+            <li><a href="Symptoms.html">Symptoms</a></li>
+            <li><a href="Testing.html">Testing</a></li>
+             <li><a href="FAQs.html">FAQs</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <header>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <h1>🛡️ Prevention: Your Shield Against HIV</h1>
+            <p class="intro">Knowledge is your first line of defense. Protecting yourself and your loved ones from HIV is more achievable than ever with today's tools and information.</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="pageProgress"></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2>1. Safe Practices: Your Daily Armor</h2>
+            <p>Explore the options below to find the prevention strategies that work best for you.</p>
+            
+            <div class="prevention-methods">
+                <div class="method-card" onclick="toggleCardDetails(this)">
+                    <div class="method-icon">🔶</div>
+                    <h3>Condoms: The Proven Classic</h3>
+                    <p>Consistent and correct use of condoms is one of the most effective ways to prevent HIV and other sexually transmitted infections (STIs).</p>
+                    <div class="card-details" style="display: none;">
+                        <ul class="key-points">
+                            <li><strong>How they work:</strong> Create a barrier that stops the exchange of bodily fluids during sex.</li>
+                            <li><strong>Effectiveness:</strong> Over 99% effective when used perfectly.</li>
+                            <li><strong>Key Tip:</strong> Use a new condom every time for vaginal, anal, and oral sex.</li>
+                        </ul>
+                    </div>
+                    <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                
+                <div class="method-card" onclick="toggleCardDetails(this)">
+                    <div class="method-icon">💊</div>
+                    <h3>PrEP (Pre-Exposure Prophylaxis): The Proactive Pill</h3>
+                    <p>PrEP is a daily pill for HIV-negative people at high risk of getting HIV. It is a powerful tool to take control of your sexual health.</p>
+                    <div class="card-details" style="display: none;">
+                        <ul class="key-points">
+                            <li><strong>How it works:</strong> When taken as prescribed, PrEP builds up in your body to block HIV from establishing an infection.</li>
+                            <li><strong>Effectiveness:</strong> Over 99% effective at preventing HIV from sex.</li>
+                            <li><strong>Key Tip:</strong> You must be prescribed PrEP by a healthcare provider.</li>
+                        </ul>
+                    </div>
+                    <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                
+                <div class="method-card" onclick="toggleCardDetails(this)">
+                    <div class="method-icon">🚑</div>
+                    <h3>PEP (Post-Exposure Prophylaxis): The Emergency Backup</h3>
+                    <p>PEP is for emergency situations. It is a short course of antiretroviral drugs taken after a possible exposure to HIV.</p>
+                    <div class="card-details" style="display: none;">
+                        <ul class="key-points">
+                            <li><strong>How it works:</strong> A 28-day course of medication that must be started <strong>within 72 hours</strong> of exposure.</li>
+                            <li><strong>Effectiveness:</strong> Highly effective if started promptly.</li>
+                            <li><strong>Key Tip:</strong> <strong>TIME IS CRITICAL.</strong> Do not wait. Contact a clinic or emergency room immediately.</li>
+                        </ul>
+                    </div>
+                    <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>2. Protecting the Next Generation: Mother-to-Child Prevention</h2>
+            <p>An HIV-positive mother can significantly reduce the risk of passing HIV to her baby during pregnancy, childbirth, or breastfeeding. With proper intervention, the risk can be <strong>less than 1%</strong>.</p>
+            
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active" onclick="openTab(event, 'tab1')">Antiretroviral Therapy</div>
+                    <div class="tab" onclick="openTab(event, 'tab2')">Medicine for Baby</div>
+                    <div class="tab" onclick="openTab(event, 'tab3')">Safe Feeding</div>
+                </div>
+                
+                <div id="tab1" class="tab-content active">
+                    <h3>Antiretroviral Therapy (ART)</h3>
+                    <p>The mother takes HIV medicine throughout pregnancy and childbirth. This keeps her viral load (amount of HIV in the blood) low, protecting the baby.</p>
+                    <p><span class="tooltip">Viral load<span class="tooltiptext">The amount of HIV in a blood sample</span></span> suppression is key to preventing transmission to the baby.</p>
+                </div>
+                
+                <div id="tab2" class="tab-content">
+                    <h3>HIV Medicine for the Baby</h3>
+                    <p>The newborn receives HIV medicine for 4-6 weeks after birth to provide additional protection against any potential exposure during delivery.</p>
+                </div>
+                
+                <div id="tab3" class="tab-content">
+                    <h3>Safe Feeding Practices</h3>
+                    <p>Mothers are counseled on the best feeding options—such as formula feeding or, in some cases, taking ART and continuing to breastfeed—to prevent transmission through breast milk.</p>
+                </div>
+            </div>
+            
+            <p><strong>The most important step is getting tested for HIV during pregnancy to begin care immediately.</strong></p>
+        </section>
+        
+        <section class="section">
+            <h2>3. Awareness & Action</h2>
+            <p>Visual reminders and key takeaways to promote prevention awareness .</p>
+            
+            <h3>Awareness prevention methods</h3>
+            <div class="awareness-icons">
+                <div class="icon-item" onclick="showIconInfo('PrEP provides daily protection for HIV-negative individuals at risk.')">
+                    <div class="icon-circle">🛡️</div>
+                    <p><strong>PrEP</strong><br>Daily Protection</p>
+                </div>
+                <div class="icon-item" onclick="showIconInfo('Condoms create a physical barrier against HIV and other STIs.')">
+                    <div class="icon-circle">🔶</div>
+                    <p><strong>Condoms</strong><br>Barrier Protection</p>
+                </div>
+                <div class="icon-item" onclick="showIconInfo('PEP must be started within 72 hours of potential HIV exposure.')">
+                    <div class="icon-circle">⏰</div>
+                    <p><strong>72 HRS</strong><br>PEP Urgency</p>
+                </div>
+                <div class="icon-item" onclick="showIconInfo('With proper treatment, mother-to-child transmission can be reduced to less than 1%.')">
+                    <div class="icon-circle">❤️</div>
+                    <p><strong>Family</strong><br>Mother-to-Child Prevention</p>
+                </div>
+            </div>
+            
+            <h3>Prevention Posters</h3>
+            <div class="posters">
+                <div class="poster" onclick="togglePoster(this)">
+                    <div class="poster-header">Your Toolkit for Prevention</div>
+                    <div class="poster-content">
+                        <div style="display: flex; justify-content: space-around; margin: 1rem 0; font-size: 2rem;">
+                            <span>🔶</span>
+                            <span>💊</span>
+                            <span>⏰</span>
+                        </div>
+                        <h4 style="text-align: center; color: var(--primary-blue); margin: 1rem 0;">CONDOMS • PrEP • PEP</h4>
+                        <ul class="key-points">
+                            <li><strong>Consistent.</strong></li>
+                            <li><strong>Proactive.</strong></li>
+                            <li><strong>Emergency.</strong></li>
+                        </ul>
+                        <p style="text-align: center; margin-top: 1rem; font-weight: bold;">Know Your Options. Take Control.</p>
+                    </div>
+                    <div class="poster-footer">Save Lives</div>
+                </div>
+                
+                <div class="poster" onclick="togglePoster(this)">
+                    <div class="poster-header">Protect Their Future</div>
+                    <div class="poster-content">
+                        <div style="text-align: center; font-size: 3rem; margin: 1rem 0;">👩‍👦</div>
+                        <h4 style="text-align: center; color: var(--primary-blue); margin: 1rem 0;">Mother-to-Child HIV Transmission is Preventable.</h4>
+                        <ul class="key-points">
+                            <li><strong>Prenatal Care</strong></li>
+                            <li><strong>HIV Treatment</strong></li>
+                            <li><strong>Healthy Start</strong></li>
+                        </ul>
+                        <p style="text-align: center; margin-top: 1rem; font-weight: bold;">Start the Conversation with Your Doctor.</p>
+                    </div>
+                    <div class="poster-footer">Every Child Deserves an HIV-Free Future.</div>
+                </div>
+            </div>
+        </section>
+</main>
+<script src="script.js"></script>
+
+</body>
+</html>
