@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing & Treatment | HIV Awareness</title>
+ <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="testing-page">
+<header>
+    <nav>
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Prevention.html" >Prevention</a></li>
+            <li><a href="Symptoms.html">Symptoms</a></li>
+            <li><a href="Testing.html">Testing</a></li>
+             <li><a href="FAQs.html">FAQs</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="icon">
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 
+        5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
+        4.5 2.09C13.09 3.81 14.76 3 16.5 
+        3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+        6.86-8.55 11.54L12 21.35z" /></svg>
+    </div>
+
+    <h1>Testing & Treatment</h1>
+    <p class="description">
+      Knowledge is power. Early testing and treatment can save lives and protect your community.
+    </p>
+
+    <!-- Accordion Section -->
+    <div class="accordion-section">
+      <div class="accordion-header">Importance of Testing</div>
+      <div class="accordion-content">
+        <p>Getting tested for HIV is the first and most crucial step towards taking control of your health.</p>
+
+        <div class="highlight-box">
+          <h3>Where to Get Tested</h3>
+          <ul>
+            <li>Local clinics and hospitals</li>
+            <li>Community health centers</li>
+            <li>Mobile testing units</li>
+            <li>Specialized HIV testing centers</li>
+            <li>Pharmacies offering rapid HIV tests</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h3>When to Get Tested</h3>
+          <ul>
+            <li>After unprotected sex</li>
+            <li>After sharing needles or blood exposure</li>
+            <li>During pregnancy</li>
+            <li>Regularly if at higher risk</li>
+            <li>Immediately after possible exposure</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h3>How Testing Works</h3>
+          <ul>
+            <li>Rapid tests use blood or saliva, results in 20 minutes</li>
+            <li>Lab tests are more detailed but slower</li>
+            <li>Testing is confidential and often free or low-cost</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-section">
+      <div class="accordion-header">Understanding ART (Antiretroviral Therapy)</div>
+      <div class="accordion-content">
+        <div class="highlight-box">
+          <h3>Benefits of ART</h3>
+          <ul>
+            <li>Reduces viral load to undetectable levels</li>
+            <li>Supports the immune system</li>
+            <li>Prevents transmission (U=U)</li>
+            <li>Improves quality of life</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h3>Importance of Adherence</h3>
+          <ul>
+            <li>Take medication exactly as prescribed</li>
+            <li>Missed doses can lead to drug resistance</li>
+            <li>Follow-up with healthcare providers</li>
+            <li>Use support groups or counseling if needed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-section">
+      <div class="accordion-header">Find a Testing Center or Clinic Near You</div>
+      <div class="accordion-content">
+        <p>For confidential HIV testing and treatment services, visit:</p>
+        <ul>
+          <li><a href="https://gettested.cdc.gov/" target="_blank">CDC HIV Testing Sites Locator</a></li>
+          <li><a href="https://www.aidshealth.org/" target="_blank">AIDS Healthcare Foundation Clinics</a></li>
+          <li><a href="https://www.hiv.gov/testing" target="_blank">National HIV and STI Testing Resources</a></li>
+          <li>Or ask your local healthcare provider</li>
+        </ul>
+        <p class="highlight-box">
+          <strong>Remember:</strong> Knowing your HIV status is empowering. Testing and treatment save lives.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-message">
+      💝 Your health matters. Testing is the first step to living well and protecting those you love.
+    </div>
+  </div>
+
+  <script>
+    const headers = document.querySelectorAll(".accordion-header");
+
+    headers.forEach(header => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          document.querySelectorAll(".accordion-content").forEach(c => c.style.display = "none");
+          content.style.display = "block";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
