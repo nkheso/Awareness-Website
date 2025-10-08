@@ -3,87 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - HIV/AIDS Awareness</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #4a148c; /* Deep purple for a calm, professional feel */
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header img {
-      max-width: 350px;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-top: 15px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .container {
-      width: 80%;
-      margin: auto;
-      padding: 20px;
-    }
-    h1 {
-      color: #4a148c; /* Matches header */
-    }
-    h2 {
-      color: #c62828; /* Red for subheadings */
-    }
-    .about-website {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .about-website img {
-      max-width: 400px;
-      width: 100%;
-      border-radius: 12px;
-      margin: 20px 0;
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 40px;
-    }
-  </style>
+  <title>About Us | Together We Rise</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>About This Website</h1>
-    <!-- Banner image -->
-    <img src="assets/HIV.png" alt="HIV/AIDS Awareness Banner">
+    <nav class="navbar">
+      <h1 class="logo">Together<span>WeRise</span></h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="container">
-    <section class="about-website">
-      <h2>Our Purpose</h2>
-      <p>This website was created to provide clear and reliable information about HIV/AIDS. 
-      Its purpose is to raise awareness, share prevention strategies, and connect people 
-      with resources that offer guidance and support.</p>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Together We Rise</h2>
+      <p>Empowering communities. Reducing stigma. Building hope for a brighter, healthier future.</p>
+    </div>
+  </section>
 
-      <h2>Our Mission</h2>
-      <p>We are dedicated to promoting education on HIV/AIDS prevention, treatment, and 
-      support. By offering accurate and accessible information, we aim to empower 
-      individuals and communities to make informed decisions and fight stigma.</p>
+  <section class="mission">
+    <h2>Our Mission</h2>
+    <p>We are dedicated to raising awareness about HIV and AIDS through education, compassion, and community support. Our mission is to empower individuals with the knowledge and confidence to take control of their health and eliminate stigma.</p>
+  </section>
 
-      <img src="hiv.jpg" alt="Awareness Image">
-    </section>
-  </div>
+  <section class="vision">
+    <h2>Our Vision</h2>
+    <p>We envision a world where no one feels alone or judged because of their HIV status. A world where compassion, inclusion, and awareness replace fear and misinformation.</p>
+  </section>
+
+  <section class="impact">
+    <h2>Real Stories, Real Change</h2>
+    <div class="impact-cards">
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/04/17/african-1868296_1280.jpg" alt="Community support">
+        <p>“Through this organization, I found strength, understanding, and a community that cares.” — *Noluthando*</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/hands-1281953_1280.jpg" alt="Teamwork">
+        <p>“The workshops helped me learn, heal, and educate others. Awareness truly saves lives.” — *Thabo*</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Join the Movement</h2>
+    <p>Be part of the change. Volunteer, donate, or share your story to help raise awareness and end stigma.</p>
+    <a href="contact.html" class="btn">Get Involved</a>
+  </section>
 
   <footer>
-    <p>&copy; 2025 HIV/AIDS Awareness | All Rights Reserved</p>
+    <p>© 2025 Together We Rise | All Rights Reserved</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
