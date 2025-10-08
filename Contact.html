@@ -3,255 +3,714 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support & Contact - HIV/AIDS Awareness</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Get Help | HIV/AIDS Awareness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary: #cf3d38;
+            --primary-dark: #ec2c13;
+            --secondary: #ff7e5f;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --success: #28a745;
+            --warning: #1b96dd;
+            --danger: #dc3545;
+            --confidential: #e83e8c;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover, nav a:focus {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, var(--warning), #ff8c00);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .emergency-banner h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .emergency-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        /* Helplines Section */
+        .helplines-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .helplines-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .helpline-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .helpline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .helpline-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .helpline-icon {
+            background: rgba(44, 120, 115, 0.1);
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .helpline-icon.emergency {
+            background: rgba(255, 193, 7, 0.2);
+            color: var(--warning);
+        }
+
+        .helpline-icon.support {
+            background: rgba(40, 167, 69, 0.2);
+            color: var(--success);
+        }
+
+        .helpline-title h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .helpline-title p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .helpline-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .helpline-content p {
+            margin-bottom: 1rem;
+        }
+
+        .helpline-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin: 1rem 0;
+        }
+
+        .helpline-number.emergency {
+            color: var(--warning);
+        }
+
+        .helpline-hours {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-call {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-call:hover, .btn-call:focus {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-info {
+            background: rgba(44, 120, 115, 0.1);
+            color: var(--primary);
+        }
+
+        .btn-info:hover, .btn-info:focus {
+            background: rgba(44, 120, 115, 0.2);
+        }
+
+        /* Additional Resources */
+        .resources-section {
+            margin-top: 3rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .resources-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .resource-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .resource-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-link:hover, .resource-link:focus {
+            text-decoration: underline;
+        }
+
+        /* Confidentiality Notice */
+        .confidentiality-notice {
+            background: rgba(232, 62, 140, 0.1);
+            border: 1px solid var(--confidential);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .confidentiality-notice i {
+            color: var(--confidential);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .confidentiality-notice h3 {
+            color: var(--confidential);
+            margin-bottom: 0.5rem;
+        }
+
+        .confidentiality-notice p {
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #adb5bd;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover, .footer-section a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover, .social-links a:focus {
+            background: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Print styles */
+        @media print {
+            .btn, .social-links, nav {
+                display: none;
+            }
+            
+            .helpline-number {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header>
-    <nav>
-        <ul>
-            <li><a href="Index.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Prevention.html" >Prevention</a></li>
-            <li><a href="Symptoms.html">Symptoms</a></li>
-            <li><a href="Testing.html">Testing</a></li>
-             <li><a href="FAQs.html">FAQs</a></li>
-              <li><a href="Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-    <!-- Hero Section -->
-    <section class="hero">
         <div class="container">
-            <h1>Support & Contact</h1>
-            <p>Find community resources, get involved, and reach out for assistance</p>
-            <a href="#resources" class="btn">Find Support</a>
-            <a href="#contact" class="btn btn-outline">Contact Us</a>
-        </div>
-    </section>
-
-    <!-- Support Resources Section -->
-    <section id="resources">
-        <div class="container">
-            <div class="section-title">
-                <h2>Community Resources</h2>
-                <p>Access support services, hotlines, and community groups</p>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h1>HopeConnect</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html" aria-current="page">Get Help</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="resource-content">
-                        <h3>24/7 Hotlines</h3>
-                        <ul class="resource-list">
-                            <li>National HIV/AIDS Hotline: <strong>1-800-342-2437</strong></li>
-                            <li>Crisis Text Line: Text <strong>HOME</strong> to 741741</li>
-                            <li>LGBTQ+ Support: <strong>1-888-843-4564</strong></li>
-                            <li>Substance Abuse: <strong>1-800-662-4357</strong></li>
-                        </ul>
-                        <div class="hotline">
-                            <p>Need immediate help?</p>
-                            <a href="tel:1-800-342-2437">Call 1-800-342-2437</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Get Help & Support</h1>
+                <p>If you need information, counseling, or support related to HIV/AIDS, these South African organizations are here to help.</p>
+            </div>
+
+            <div class="emergency-banner">
+                <h2><i class="fas fa-exclamation-triangle"></i> Need Immediate Help?</h2>
+                <p>If you're in crisis or need urgent support, call now:</p>
+                <a href="tel:0800012322" class="emergency-number">0800 012 322</a>
+                <p>SANAC National AIDS Helpline | 24/7 | Confidential | Multilingual</p>
+            </div>
+
+            <div class="helplines-section">
+                <div class="helpline-card">
+                    <div class="helpline-header">
+                        <div class="helpline-icon emergency">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="helpline-title">
+                            <h3>SANAC Helpline</h3>
+                            <p>National AIDS Helpline</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-users"></i>
+                    <div class="helpline-content">
+                        <p>Provides confidential telephone counseling, information, and referrals related to HIV and AIDS.</p>
+                        <a href="tel:0800012322" class="helpline-number emergency">0800 012 322</a>
+                        <p class="helpline-hours">24 hours / 7 days a week</p>
+                        <p>Languages: English, Zulu, Xhosa, Sotho</p>
                     </div>
-                    <div class="resource-content">
+                    <div class="action-buttons">
+                        <a href="tel:0800012322" class="btn btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://sanac.org.za" class="btn btn-info">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <div class="helpline-card">
+                    <div class="helpline-header">
+                        <div class="helpline-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div class="helpline-title">
+                            <h3>LoveLife</h3>
+                            <p>Youth HIV Prevention</p>
+                        </div>
+                    </div>
+                    <div class="helpline-content">
+                        <p>Focuses on HIV prevention among young South Africans through information and support services.</p>
+                        <a href="tel:0800121322" class="helpline-number">0800 121 322</a>
+                        <p class="helpline-hours">Mon-Fri: 8am-5pm | Sat: 9am-1pm</p>
+                        <p>SMS: 35050</p>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="tel:0800121322" class="btn btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://lovelife.org.za" class="btn btn-info">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <div class="helpline-card">
+                    <div class="helpline-header">
+                        <div class="helpline-icon support">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="helpline-title">
+                            <h3>TB HIV Care</h3>
+                            <p>Comprehensive Support</p>
+                        </div>
+                    </div>
+                    <div class="helpline-content">
+                        <p>Provides HIV prevention, testing, treatment adherence and psychosocial support services.</p>
+                        <a href="tel:0870573247" class="helpline-number">087 057 3247</a>
+                        <p class="helpline-hours">Mon-Fri: 8am-4:30pm</p>
+                        <p>Multiple locations nationwide</p>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="tel:0870573247" class="btn btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://tbhivcare.org" class="btn btn-info">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <div class="helpline-card">
+                    <div class="helpline-header">
+                        <div class="helpline-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="helpline-title">
+                            <h3>POWA</h3>
+                            <p>People Opposing Women Abuse</p>
+                        </div>
+                    </div>
+                    <div class="helpline-content">
+                        <p>Supports women living with HIV who experience gender-based violence and abuse.</p>
+                        <a href="tel:0837651235" class="helpline-number">083 765 1235</a>
+                        <p class="helpline-hours">Mon-Fri: 8:30am-4:30pm</p>
+                        <p>Johannesburg-based with national referrals</p>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="tel:0837651235" class="btn btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://powa.co.za" class="btn btn-info">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources-section">
+                <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-dark);">Additional Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Find a Clinic</h3>
+                        <p>Locate your nearest HIV testing and treatment facility</p>
+                        <a href="https://www.health.gov.za" class="resource-link">
+                            Search Directory <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Educational Materials</h3>
+                        <p>Download brochures, factsheets and prevention information</p>
+                        <a href="resources.html" class="resource-link">
+                            View Resources <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
                         <h3>Support Groups</h3>
-                        <ul class="resource-list">
-                            <li>Weekly virtual support meetings</li>
-                            <li>Peer-to-peer mentorship program</li>
-                            <li>Family and caregiver support</li>
-                            <li>Youth-focused groups (ages 18-25)</li>
-                            <li>Spanish-speaking support groups</li>
-                        </ul>
-                        <a href="#contact" class="btn" style="margin-top: 1rem;">Join a Group</a>
+                        <p>Connect with others in your community for mutual support</p>
+                        <a href="get-involved.html" class="resource-link">
+                            Find Groups <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <div class="resource-content">
-                        <h3>Community Services</h3>
-                        <ul class="resource-list">
-                            <li>Housing assistance programs</li>
-                            <li>Nutritional support services</li>
-                            <li>Mental health counseling</li>
-                            <li>Legal aid and advocacy</li>
-                            <li>Transportation to medical appointments</li>
-                        </ul>
-                        <a href="#contact" class="btn" style="margin-top: 1rem;">Request Assistance</a>
-                    </div>
+            </div>
+
+            <div class="confidentiality-notice">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h3>Your Privacy Matters</h3>
+                    <p>All helplines listed provide confidential services. You don't need to give your name, and your call cannot be traced. These organizations are committed to protecting your privacy and providing non-judgmental support.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Get Involved Section -->
-    <section id="get-involved" style="background-color: #f0f7ff;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get Involved</h2>
-                <p>Join our mission to raise awareness and support those affected by HIV/AIDS</p>
-            </div>
-            <div class="involvement-options">
-                <div class="involvement-card">
-                    <div class="involvement-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Volunteer</h3>
-                    <p>Join our team of dedicated volunteers helping with community outreach, events, and support services.</p>
-                    <a href="#contact" class="btn" style="margin-top: 1rem;">Volunteer Now</a>
-                </div>
-                
-                <div class="involvement-card">
-                    <div class="involvement-icon">
-                        <i class="fas fa-donate"></i>
-                   
-                
-                <div class="involvement-card">
-                    <div class="involvement-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Join Events</h3>
-                    <p>Participate in awareness walks, fundraising events, and educational workshops in your community.</p>
-                    <a href="#contact" class="btn" style="margin-top: 1rem;">View Events</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Reach out with questions, concerns, or to get involved</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Our Information</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Our Location</h4>
-                            <p>123 Health Avenue, Community District<br>City, State 12345</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email Us</h4>
-                            <p>info@hivaidsawareness.org<br>support@hivaidsawareness.org</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Call Us</h4>
-                            <p>+1 (555) 123-4567<br>Mon-Fri: 9am-5pm EST</p>
-                        </div>
-                    </div>
-                    
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/xqadneze" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="">Select a topic</option>
-                                <option value="support">Request Support</option>
-                                <option value="volunteer">Volunteer Inquiry</option>
-                                <option value="donation">Donation Question</option>
-                                <option value="event">Event Information</option>
-                                <option value="general">General Question</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>HIV/AIDS Awareness</h3>
-                    <p>Providing education, support, and resources to combat HIV/AIDS in our communities.</p>
+                <div class="footer-section">
+                    <h3>HopeConnect</h3>
+                    <p>Dedicated to HIV/AIDS awareness, prevention, support, and ending stigma in our communities.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About HIV & AIDS</a></li>
-                        <li><a href="prevention.html">Prevention</a></li>
-                        <li><a href="testing.html">Testing & Treatment</a></li>
-                        <li><a href="support.html">Support & Contact</a></li>
-                    </ul>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="get-involved.html">Get Involved</a>
+                    <a href="contact.html">Get Help</a>
                 </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Hotlines</a></li>
-                        <li><a href="#">Support Groups</a></li>
-                        <li><a href="#">Community Services</a></li>
-                        <li><a href="#">Educational Materials</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Get Involved</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Donate</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Partnerships</a></li>
-                    </ul>
+                <div class="footer-section">
+                    <h3>Emergency Contacts</h3>
+                    <p><i class="fas fa-phone"></i> SANAC: 0800 012 322</p>
+                    <p><i class="fas fa-phone"></i> LoveLife: 0800 121 322</p>
+                    <p><i class="fas fa-phone"></i> TB HIV Care: 087 057 3247</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 HIV/AIDS Awareness Organization. All rights reserved. | <a href="#" style="color: #bbb;">Privacy Policy</a> | <a href="#" style="color: #bbb;">Terms of Service</a></p>
+                <p>&copy; 2023 HopeConnect HIV/AIDS Awareness. All rights reserved. | This site provides information and referrals only.</p>
             </div>
         </div>
     </footer>
 
-   
+    <script>
+        // Add click tracking for analytics (optional)
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                // In a real implementation, you would send analytics data here
+                console.log('Helpline called: ' + this.textContent);
+            });
+        });
+
+        // Add print styles for helpline numbers
+        const style = document.createElement('style');
+        style.textContent = `
+            @media print {
+                .emergency-banner {
+                    background: #f8f9fa !important;
+                    color: black !important;
+                    border: 2px solid black;
+                }
+                
+                .helpline-card {
+                    break-inside: avoid;
+                }
+                
+                .action-buttons, .social-links, nav {
+                    display: none !important;
+                }
+            }
+            
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
-
