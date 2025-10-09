@@ -121,7 +121,38 @@ p {
 .cta .btn:hover {
   background: #f8c8d6;
 }
-
+ /* About HIV Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .about-image {
+            flex: 1;
+            background-color: #f1eef0;
+            height: 350px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 18px;
+            background: linear-gradient(180deg, rgba(197,142,164,0.06), rgba(255,255,255,0.02)), url('assets/hiv-awareness.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(41,34,37,0.04);
+            overflow: hidden;
+        }
 /* Footer */
 footer {
   background: #222;
@@ -139,7 +170,7 @@ footer {
 }
  .faq-question {
             padding: 1.5rem;
-            background-color: rgb(36, 36, 151);
+            background-color: rgb(247, 180, 232);
             color: white;
             cursor: pointer;
             display: flex;
@@ -160,8 +191,8 @@ footer {
             max-height: 500px;
         }
 :root {
-            --primary-red: #e53935;
-            --primary-blue: #1a237e;
+            --primary-red: #d894b9;
+            --primary-blue: #ca1b72;
             --light-blue: #e8eaf6;
             --light-gray: #f5f5f5;
             --dark-gray: #424242;
@@ -191,42 +222,63 @@ footer {
             padding: 0 15px;
         }
  
-        /* Header & Navigation */
+        /* Header Styles */
         header {
-            background-color: var(--primary-blue);
-            box-shadow: var(--shadow);
+            background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
+            color: white;
+            padding: 18px 0;
+            box-shadow: 0 6px 24px rgba(40, 37, 40, 0.08);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            backdrop-filter: blur(4px);
         }
- 
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.2px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
-            justify-content: center;
-            flex-wrap: wrap;
         }
- 
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
         nav ul li a {
-            display: block;
-            padding: 15px 20px;
-            color: var(--white);
+            color: white;
             text-decoration: none;
-            transition: var(--transition);
+            font-weight: 600;
+            transition: all 0.18s ease;
+            padding: 6px 12px;
+            border-radius: 8px;
+            opacity: 0.95;
+            font-size: 15px;
         }
- 
+        
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
         }
- 
-        nav ul li a.active {
-            background-color: var(--primary-red);
-            font-weight: bold;
-        }
- 
         /* Main Header */
         main > header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #283593 100%);
+            background: linear-gradient( #f0d0f0 100%);
             color: var(--white);
             padding: 60px 0 40px;
             position: relative;
@@ -350,7 +402,7 @@ footer {
         }
  
         .method-card.expanded {
-            border-left-color: var(--primary-red);
+            border-left-color: var(--primary-pink);
         }
  
         .method-icon {
@@ -373,7 +425,7 @@ footer {
         }
  
         .method-card.expanded .expand-icon {
-            color: var(--primary-red);
+            color: palevioletred;
         }
  
         .card-details {
@@ -410,7 +462,7 @@ footer {
  
         .tabs {
             display: flex;
-            background-color: var(--primary-blue);
+            background-color: pink;
         }
  
         .tab {
@@ -612,7 +664,7 @@ footer {
  
         /* Contact Section */
          :root {
-            --primary: #2c3e50;     /* Dark blue - professional and trustworthy */
+            --primary: #dda4d6;     /* Dark blue - professional and trustworthy */
             --secondary: #e74c3c;   /* Red - attention-grabbing for health awareness */
             --accent: #3498db;      /* Blue - calm and reassuring */
         }
@@ -626,7 +678,7 @@ footer {
        
         body {
             line-height: 1.6;
-            color: #333;
+            color: #eca4e9;
             background-color: #f9f9f9;
         }
        
@@ -639,7 +691,7 @@ footer {
        
         /* Header */
         header {
-            background-color: var(--primary);
+            background-color: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -694,7 +746,7 @@ footer {
        
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            background:  linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
             color: white;
             text-align: center;
             padding: 4rem 1rem;
@@ -1001,11 +1053,11 @@ footer {
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(197, 143, 184, 0.1);
             font-size: 0.9rem;
             color: #bbb;
         }
-       
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -1158,4 +1210,64 @@ footer {
         opacity: 1;
         transform: translateY(0);
       }
-    }
+    }/* Testing Centers Grid Styles */
+.testing-centers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.center-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  border: 1px solid #e0e0e0;
+}
+
+.center-card:hover {
+  transform: translateY(-5px);
+}
+
+.center-card-header {
+  background-color: #da85aa;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.center-card-body {
+  padding: 1.5rem;
+}
+
+.center-card-body p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #292225;
+}
+
+.center-card-link {
+  display: inline-block;
+  background-color: #e088ae;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+.center-card-link:hover {
+  background-color: #2c5530;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testing-centers-grid {
+    grid-template-columns: 1fr;
+  }
+}
