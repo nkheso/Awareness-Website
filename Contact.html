@@ -220,50 +220,8 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Add click tracking for analytics (optional)
-        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', function() {
-                // In a real implementation, you would send analytics data here
-                console.log('Helpline called: ' + this.textContent);
-            });
-        });
-
-        // Add print styles for helpline numbers
-        const style = document.createElement('style');
-        style.textContent = `
-            @media print {
-                .emergency-banner {
-                    background: #f8f9fa !important;
-                    color: black !important;
-                    border: 2px solid black;
-                }
-                
-                .helpline-card {
-                    break-inside: avoid;
-                }
-                
-                .action-buttons, .social-links, nav {
-                    display: none !important;
-                }
-            }
-            
-            .sr-only {
-                position: absolute;
-                width: 1px;
-                height: 1px;
-                padding: 0;
-                margin: -1px;
-                overflow: hidden;
-                clip: rect(0, 0, 0, 0);
-                white-space: nowrap;
-                border: 0;
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
+
 
 
