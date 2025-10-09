@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIV Awareness - Know the Facts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root{
+            --bg: #f7f5f6;
+            --text: #2f2f35;
+            --muted: #6b6b72;
+            --dusty-pink: #c58ea4; /* primary accent */
+            --dusty-pink-dark: #a86f84; /* hover/strong */
+            --accent-2: #6b7280; /* neutral slate */
+            --card-bg: #ffffff;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
+            color: white;
+            padding: 18px 0;
+            box-shadow: 0 6px 24px rgba(40, 37, 40, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.2px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.18s ease;
+            padding: 6px 12px;
+            border-radius: 8px;
+            opacity: 0.95;
+            font-size: 15px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            /* lighter overlay so black text reads clearly */
+            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.45) 100%), url('https://images.unsplash.com/photo-1555949963-8f03f7488d2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text);
+            padding: 100px 0 90px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 18px;
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.05;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 820px;
+            margin: 0 auto 28px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--dusty-pink);
+            color: var(--text);
+            padding: 12px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.22s ease;
+            box-shadow: 0 10px 30px rgba(168,111,132,0.12);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--dusty-pink-dark);
+            color: var(--text);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(168,111,132,0.12);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--text);
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 72px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dusty-pink), var(--dusty-pink-dark));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+        
+        /* About HIV Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .about-image {
+            flex: 1;
+            background-color: #f1eef0;
+            height: 350px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 18px;
+            background: linear-gradient(180deg, rgba(197,142,164,0.06), rgba(255,255,255,0.02)), url('assets/hiv-awareness.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(41,34,37,0.04);
+            overflow: hidden;
+        }
+        
+        /* Symptoms Section */
+        .symptoms {
+            background-color: #fff6f8;
+        }
+        
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .symptom-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(41,34,37,0.04);
+            transition: transform 0.28s cubic-bezier(.2,.9,.3,1);
+            border-top: 4px solid var(--dusty-pink);
+        }
+        
+        .symptom-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .symptom-card h3 {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+        
+        .symptom-card ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+        
+        .symptom-card li {
+            margin-bottom: 8px;
+        }
+       
+        
+        /* Facts Section */
+        .facts {
+            background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
+            color: white;
+        }
+        
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .fact-box {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .fact-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .fact-text {
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, rgba(168,111,132,0.95), rgba(197,142,164,0.95));
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: rgba(255,255,255,0.9);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #e5e7eb;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-ribbon"></i></span>
+                    HIV Awareness
+                </div>
+                <nav>
+                    <ul>
+                         <li><a href="Index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Prevention.html" >Prevention</a></li>
+            <li><a href="Symptoms.html">Symptoms</a></li>
+            <li><a href="Testing.html">Testing</a></li>
+             <li><a href="FAQs.html">FAQs</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Know the Facts About HIV</h1>
+            <p>Education is the first step in prevention. Learn how to protect yourself and others from HIV transmission.</p>
+            <a href="#testing" class="cta-button">Get Tested Today</a>
+        </div>
+    </section>
+
+    <!-- About HIV Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What is HIV?</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>HIV (Human Immunodeficiency Virus) is a virus that attacks the body's immune system, specifically the CD4 cells (T cells), which help the immune system fight off infections. If left untreated, HIV reduces the number of CD4 cells in the body, making the person more likely to get infections or infection-related cancers.</p>
+                    <p>Over time, HIV can destroy so many of these cells that the body can't fight off infections and disease. These opportunistic infections or cancers take advantage of a very weak immune system and signal that the person has AIDS, the last stage of HIV infection.</p>
+                    <p>No effective cure currently exists for HIV. But with proper medical care, HIV can be controlled. People with HIV who get effective HIV treatment can live long, healthy lives and protect their partners.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Background image will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Facts Section -->
+    <section id="facts" class="section facts">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Key Facts About HIV</h2>
+            </div>
+            <div class="facts-grid">
+                <div class="fact-box">
+                    <div class="fact-number">38M</div>
+                    <div class="fact-text">People living with HIV worldwide</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-number">85%</div>
+                    <div class="fact-text">Of people with HIV know their status</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-number">99%</div>
+                    <div class="fact-text">Risk reduction with proper PrEP use</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-number">0</div>
+                    <div class="fact-text">Risk of transmission with undetectable viral load</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html><section class="hero">
+    <div class="hero-text">
+      <h2>Together We Rise</h2>
+      <p>Empowering communities. Reducing stigma. Building hope for a brighter, healthier future.</p>
+    </div>
+  </section>
+
+  <section class="mission">
+    <h2>Our Mission</h2>
+    <p>We are dedicated to raising awareness about HIV and AIDS through education, compassion, and community support. Our mission is to empower individuals with the knowledge and confidence to take control of their health and eliminate stigma.</p>
+  </section>
+
+  <section class="vision">
+    <h2>Our Vision</h2>
+    <p>We envision a world where no one feels alone or judged because of their HIV status. A world where compassion, inclusion, and awareness replace fear and misinformation.</p>
+  </section>
+
+  <section class="impact">
+    <h2>Real Stories, Real Change</h2>
+    <div class="impact-cards">
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/04/17/african-1868296_1280.jpg" alt="Community support">
+        <p>“Through this organization, I found strength, understanding, and a community that cares.” — *Noluthando*</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2016/03/27/07/08/hands-1281953_1280.jpg" alt="Teamwork">
+        <p>“The workshops helped me learn, heal, and educate others. Awareness truly saves lives.” — *Thabo*</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Join the Movement</h2>
+    <p>Be part of the change. Volunteer, donate, or share your story to help raise awareness and end stigma.</p>
+    <a href="contact.html" class="btn">Get Involved</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Together We Rise | All Rights Reserved</p>
+  </footer>
