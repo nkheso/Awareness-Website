@@ -3,39 +3,426 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testing & Treatment | HIV Awareness</title>
- <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body class="testing-page">
-<header>
-    <nav>
-        <ul>
-            <li><a href="Index.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Prevention.html" >Prevention</a></li>
-            <li><a href="Symptoms.html">Symptoms</a></li>
-            <li><a href="Testing.html">Testing</a></li>
-             <li><a href="FAQs.html">FAQs</a></li>
-              <li><a href="Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-  <div class="container">
-    <!-- Hero Section -->
-    <div class="icon">
-      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 
-        5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
-        4.5 2.09C13.09 3.81 14.76 3 16.5 
-        3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 
-        6.86-8.55 11.54L12 21.35z" /></svg>
-    </div>
+  <title>Testing & Treatment - HIV Awareness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f7f5f6;
+      --text: #2f2f35;
+      --muted: #6b6b72;
+      --dusty-pink: #c58ea4;
+      --dusty-pink-dark: #a86f84;
+      --card-bg: #ffffff;
+    }
 
-    <h1>Testing & Treatment</h1>
-    <p class="description">
-      Knowledge is power. Early testing and treatment can save lives and protect your community.
-    </p>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
+      color: white;
+      padding: 18px 0;
+      box-shadow: 0 6px 24px rgba(40, 37, 40, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      margin-right: 10px;
+      font-size: 32px;
+    }
+    
+    /* Navigation */
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 25px;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.18s ease;
+    }
+    
+    nav ul li a:hover, nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 21px;
+      justify-content: space-between;
+    }
+    
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+    
+    .page-title h1 {
+      font-size: 36px;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    
+    .page-title .description {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Icon */
+    .icon {
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .icon svg {
+      width: 60px;
+      height: 60px;
+      fill: var(--dusty-pink);
+    }
+    
+    /* Accordion */
+    .accordion-section {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    
+    .accordion-header {
+      background-color: var(--card-bg);
+      padding: 20px 25px;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--dusty-pink);
+    }
+    
+    .accordion-header:hover {
+      background-color: #f9f9f9;
+    }
+    
+    .accordion-header::after {
+      content: '\f078';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      transition: transform 0.3s ease;
+    }
+    
+    .accordion-section.active .accordion-header::after {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      background-color: var(--card-bg);
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .accordion-section.active .accordion-content {
+      padding: 25px;
+      max-height: 2000px;
+    }
+    
+    .accordion-content p {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+    
+    /* Highlight Box */
+    .highlight-box {
+      background-color: #f9f7f8;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid var(--dusty-pink);
+    }
+    
+    .highlight-box h3 {
+      color: var(--text);
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .highlight-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .highlight-box li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .highlight-box li:before {
+      content: "•";
+      color: var(--dusty-pink);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Testing Centers Grid */
+    .testing-centers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .center-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--dusty-pink);
+    }
+    
+    .center-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    
+    .center-card-header {
+      background: linear-gradient(90deg, var(--dusty-pink), var(--dusty-pink-dark));
+      color: white;
+      padding: 15px 20px;
+      font-weight: 600;
+    }
+    
+    .center-card-body {
+      padding: 20px;
+    }
+    
+    .center-card-body p {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+    
+    .center-card-link {
+      display: inline-block;
+      background-color: var(--dusty-pink);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .center-card-link:hover {
+      background-color: var(--dusty-pink-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer Message */
+    .footer-message {
+      text-align: center;
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 40px 0;
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--dusty-pink);
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, rgba(168,111,132,0.95), rgba(197,142,164,0.95));
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 30px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, rgba(197,142,164,0.98), rgba(168,111,132,0.98));
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .testing-centers-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .page-title h1 {
+        font-size: 28px;
+      }
+      
+      .accordion-header {
+        font-size: 18px;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon"><i class="fas fa-ribbon"></i></span>
+          HIV Awareness
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="prevention.html">Prevention</a></li>
+            <li><a href="symptoms.html">Symptoms</a></li>
+            <li><a href="testing.html" class="active">Testing</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 
+            5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
+            4.5 2.09C13.09 3.81 14.76 3 16.5 
+            3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+            6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </div>
+      <h1>Testing & Treatment</h1>
+      <p class="description">
+        Knowledge is power. Early testing and treatment can save lives and protect your community.
+      </p>
+    </div>
 
     <!-- Accordion Section -->
     <div class="accordion-section">
@@ -102,97 +489,120 @@
     </div>
 
    <!-- Find Testing Centers Section -->
-  <div class="accordion-section">
-    <div class="accordion-header">Find a Testing Center or Clinic Near You</div>
-    <div class="accordion-content">
-      <p>For confidential HIV testing and treatment services, visit these trusted resources:</p>
-      
-      <!-- Testing Centers Grid -->
-      <div class="testing-centers-grid">
-        <div class="center-card">
-          <div class="center-card-header">
-            CDC HIV Testing Sites Locator
+    <div class="accordion-section">
+      <div class="accordion-header">Find a Testing Center or Clinic Near You</div>
+      <div class="accordion-content">
+        <p>For confidential HIV testing and treatment services, visit these trusted resources:</p>
+        
+        <!-- Testing Centers Grid -->
+        <div class="testing-centers-grid">
+          <div class="center-card">
+            <div class="center-card-header">
+              CDC HIV Testing Sites Locator
+            </div>
+            <div class="center-card-body">
+              <p>Find HIV testing locations near you using the CDC's official database of testing sites across the United States.</p>
+              <a href="https://gettested.cdc.gov/" target="_blank" class="center-card-link">Visit Website</a>
+            </div>
           </div>
-          <div class="center-card-body">
-            <p>Find HIV testing locations near you using the CDC's official database of testing sites across the United States.</p>
-            <a href="https://gettested.cdc.gov/" target="_blank" class="center-card-link">Visit Website</a>
+          
+          <div class="center-card">
+            <div class="center-card-header">
+              AIDS Healthcare Foundation
+            </div>
+            <div class="center-card-body">
+              <p>Access HIV testing, prevention, and treatment services at AHF clinics worldwide. Many locations offer free testing.</p>
+              <a href="https://www.aidshealth.org/" target="_blank" class="center-card-link">Find a Clinic</a>
+            </div>
+          </div>
+          
+          <div class="center-card">
+            <div class="center-card-header">
+              Planned Parenthood
+            </div>
+            <div class="center-card-body">
+              <p>Get confidential HIV testing and counseling at Planned Parenthood health centers across the country.</p>
+              <a href="https://www.plannedparenthood.org/" target="_blank" class="center-card-link">Locate Center</a>
+            </div>
+          </div>
+          
+          <div class="center-card">
+            <div class="center-card-header">
+              Local Health Departments
+            </div>
+            <div class="center-card-body">
+              <p>Contact your city or county health department for information on local HIV testing and prevention services.</p>
+              <a href="https://www.naccho.org/membership/lhd-directory" target="_blank" class="center-card-link">Find Local Dept</a>
+            </div>
+          </div>
+          
+          <div class="center-card">
+            <div class="center-card-header">
+              Community Health Centers
+            </div>
+            <div class="center-card-body">
+              <p>Federally qualified health centers provide HIV testing and care regardless of ability to pay.</p>
+              <a href="https://findahealthcenter.hrsa.gov/" target="_blank" class="center-card-link">Search Centers</a>
+            </div>
+          </div>
+          
+          <div class="center-card">
+            <div class="center-card-header">
+              Pharmacy Testing Services
+            </div>
+            <div class="center-card-body">
+              <p>Many pharmacies now offer rapid HIV testing with results in 20 minutes. Check with your local pharmacy.</p>
+              <a href="https://www.cdc.gov/hiv/testing/index.html" target="_blank" class="center-card-link">Learn More</a>
+            </div>
           </div>
         </div>
         
-        <div class="center-card">
-          <div class="center-card-header">
-            AIDS Healthcare Foundation
-          </div>
-          <div class="center-card-body">
-            <p>Access HIV testing, prevention, and treatment services at AHF clinics worldwide. Many locations offer free testing.</p>
-            <a href="https://www.aidshealth.org/" target="_blank" class="center-card-link">Find a Clinic</a>
-          </div>
+        <div class="highlight-box">
+          <p><strong>Remember:</strong> Knowing your HIV status is empowering. Testing and treatment save lives.</p>
         </div>
-        
-        <div class="center-card">
-          <div class="center-card-header">
-            Planned Parenthood
-          </div>
-          <div class="center-card-body">
-            <p>Get confidential HIV testing and counseling at Planned Parenthood health centers across the country.</p>
-            <a href="https://www.plannedparenthood.org/" target="_blank" class="center-card-link">Locate Center</a>
-          </div>
-        </div>
-        
-        <div class="center-card">
-          <div class="center-card-header">
-            Local Health Departments
-          </div>
-          <div class="center-card-body">
-            <p>Contact your city or county health department for information on local HIV testing and prevention services.</p>
-            <a href="https://www.naccho.org/membership/lhd-directory" target="_blank" class="center-card-link">Find Local Dept</a>
-          </div>
-        </div>
-        
-        <div class="center-card">
-          <div class="center-card-header">
-            Community Health Centers
-          </div>
-          <div class="center-card-body">
-            <p>Federally qualified health centers provide HIV testing and care regardless of ability to pay.</p>
-            <a href="https://findahealthcenter.hrsa.gov/" target="_blank" class="center-card-link">Search Centers</a>
-          </div>
-        </div>
-        
-        <div class="center-card">
-          <div class="center-card-header">
-            Pharmacy Testing Services
-          </div>
-          <div class="center-card-body">
-            <p>Many pharmacies now offer rapid HIV testing with results in 20 minutes. Check with your local pharmacy.</p>
-            <a href="https://www.cdc.gov/hiv/testing/index.html" target="_blank" class="center-card-link">Learn More</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="highlight-box">
-        <p><strong>Remember:</strong> Knowing your HIV status is empowering. Testing and treatment save lives.</p>
       </div>
     </div>
-  </div>
-    <!-- Footer -->
+    
+    <!-- Footer Message -->
     <div class="footer-message">
       💝 Your health matters. Testing is the first step to living well and protecting those you love.
     </div>
   </div>
 
   <script>
-    const headers = document.querySelectorAll(".accordion-header");
-
-    headers.forEach(header => {
-      header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          document.querySelectorAll(".accordion-content").forEach(c => c.style.display = "none");
-          content.style.display = "block";
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Accordion functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const section = header.parentElement;
+        const isActive = section.classList.contains('active');
+        
+        // Close all accordion sections
+        document.querySelectorAll('.accordion-section').forEach(s => {
+          s.classList.remove('active');
+        });
+        
+        // If the clicked section wasn't active, open it
+        if (!isActive) {
+          section.classList.add('active');
         }
       });
     });
