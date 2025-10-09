@@ -28,8 +28,9 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
         
         .container {
@@ -69,6 +70,7 @@
             font-size: 32px;
         }
         
+        /* Navigation Styles */
         nav ul {
             display: flex;
             list-style: none;
@@ -93,9 +95,39 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
         
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 21px;
+            justify-content: space-between;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
         /* Hero Section */
         .hero {
-            /* lighter overlay so black text reads clearly */
             background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.45) 100%), url('https://images.unsplash.com/photo-1555949963-8f03f7488d2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
@@ -249,7 +281,6 @@
             margin-bottom: 8px;
         }
        
-        
         /* Facts Section */
         .facts {
             background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
@@ -347,36 +378,137 @@
         }
         
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
+                font-size: 38px;
             }
             
             .about-content {
                 flex-direction: column;
             }
             
+            .about-image {
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                text-align: center;
+            }
+            
+            nav {
+                position: relative;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(90deg, rgba(197,142,164,0.98), rgba(168,111,132,0.98));
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                z-index: 99;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 0;
+                font-size: 18px;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 80px 0 70px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
             .section {
-                padding: 50px 0;
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .fact-number {
+                font-size: 40px;
+            }
+            
+            .fact-text {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 60px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 15px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 24px;
+            }
+            
+            .symptom-card, .fact-box {
+                padding: 20px;
+            }
+            
+            .fact-number {
+                font-size: 36px;
+            }
+            
+            .footer-section {
+                min-width: 100%;
             }
         }
     </style>
@@ -390,15 +522,20 @@
                     <span class="logo-icon"><i class="fas fa-ribbon"></i></span>
                     HIV Awareness
                 </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <nav>
-                    <ul>
-                         <li><a href="Index.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Prevention.html" >Prevention</a></li>
-            <li><a href="Symptoms.html">Symptoms</a></li>
-            <li><a href="Testing.html">Testing</a></li>
-             <li><a href="FAQs.html">FAQs</a></li>
-              <li><a href="Contact.html">Contact</a></li>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="prevention.html">Prevention</a></li>
+                        <li><a href="symptoms.html">Symptoms</a></li>
+                        <li><a href="testing.html">Testing</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -413,8 +550,6 @@
             <a href="#testing" class="cta-button">Get Tested Today</a>
         </div>
     </section>
-
-  
 
     <!-- Facts Section -->
     <section id="facts" class="section facts">
@@ -443,5 +578,31 @@
         </div>
     </section>
 
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

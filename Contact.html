@@ -3,28 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Help | HIV/AIDS Awareness</title>
+    <title>Get Help & Support - HIV Awareness</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #f7f5f6;
+            --text: #2f2f35;
+            --muted: #6b6b72;
+            --dusty-pink: #c58ea4;
+            --dusty-pink-dark: #a86f84;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--dusty-pink);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
+            color: white;
+            padding: 18px 0;
+            box-shadow: 0 6px 24px rgba(40, 37, 40, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all 0.18s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 21px;
+            justify-content: space-between;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--text);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(90deg, rgba(168,111,132,0.95), rgba(197,142,164,0.95));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.2);
+        }
+        
+        .emergency-banner h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .emergency-banner p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .emergency-number {
+            display: inline-block;
+            background-color: white;
+            color: #e74c3c;
+            padding: 12px 25px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .emergency-number:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Helplines Section */
+        .helplines-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .helpline-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .helpline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .helpline-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .helpline-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .helpline-icon.emergency {
+            background: linear-gradient(90deg, #f31d1d, #c0392b);
+        }
+        
+        .helpline-icon.support {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+        
+        .helpline-icon {
+            background: linear-gradient(90deg, var(--dusty-pink), var(--dusty-pink-dark));
+        }
+        
+        .helpline-title h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+        
+        .helpline-title p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+        
+        .helpline-content {
+            padding: 20px;
+        }
+        
+        .helpline-content p {
+            margin-bottom: 10px;
+            color: var(--muted);
+        }
+        
+        .helpline-number {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 15px 0;
+            text-decoration: none;
+        }
+        
+        .helpline-number.emergency {
+            color:#e74c3c;
+        }
+        
+        .helpline-hours {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .action-buttons {
+            display: flex;
+            padding: 0 20px 20px;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            flex: 1;
+            gap: 8px;
+        }
+        
+        .btn-call {
+            background-color: var(--dusty-pink);
+            color: white;
+        }
+        
+        .btn-call:hover {
+            background-color: var(--dusty-pink-dark);
+        }
+        
+        .btn-info {
+            background-color: #f0f0f0;
+            color: var(--text);
+        }
+        
+        .btn-info:hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Resources Section */
+        .resources-section {
+            margin-bottom: 60px;
+        }
+        
+        .resources-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: var(--text);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--dusty-pink);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .resource-icon {
+            font-size: 40px;
+            color: var(--dusty-pink);
+            margin-bottom: 20px;
+        }
+        
+        .resource-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .resource-card p {
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+        
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dusty-pink);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            color: var(--dusty-pink-dark);
+            gap: 12px;
+        }
+        
+        /* Contact Form */
+        .contact-form-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .contact-form-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: var(--text);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--dusty-pink);
+            box-shadow: 0 0 0 3px rgba(197, 142, 164, 0.1);
+        }
+        
+        /* Confidentiality Notice */
+        .confidentiality-notice {
+            background-color: #f0f7ff;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 40px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .confidentiality-notice i {
+            font-size: 30px;
+            color: #3498db;
+            margin-top: 5px;
+        }
+        
+        .confidentiality-notice h3 {
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .confidentiality-notice p {
+            color: var(--muted);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, rgba(168,111,132,0.95), rgba(197,142,164,0.95));
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: rgba(255,255,255,0.9);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #e5e7eb;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(90deg, rgba(197,142,164,0.98), rgba(168,111,132,0.98));
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .helplines-section, .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .confidentiality-notice {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .emergency-banner {
+                padding: 20px;
+            }
+            
+            .emergency-banner h2 {
+                font-size: 20px;
+            }
+            
+            .contact-form-section {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content link for keyboard users -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
- <header>
-    <nav>
-        <ul>
-            <li><a href="Index.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Prevention.html" >Prevention</a></li>
-            <li><a href="Symptoms.html">Symptoms</a></li>
-            <li><a href="Testing.html">Testing</a></li>
-             <li><a href="FAQs.html">FAQs</a></li>
-              <li><a href="Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-   
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-ribbon"></i></span>
+                    HIV Awareness
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="prevention.html">Prevention</a></li>
+                        <li><a href="symptoms.html">Symptoms</a></li>
+                        <li><a href="testing.html">Testing</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
     <main id="main-content">
         <div class="container">
@@ -147,7 +776,7 @@
             </div>
 
             <div class="resources-section">
-                <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-dark);">Additional Resources</h2>
+                <h2>Additional Resources</h2>
                 <div class="resources-grid">
                     <div class="resource-card">
                         <div class="resource-icon">
@@ -183,47 +812,45 @@
             </div>
             
             <!-- Contact Form Section -->
-<div class="contact-form-section">
-    <h2 style="text-align:center; color: var(--primary-dark); margin-bottom: 1rem;">
-        Send Us a Message
-    </h2>
-    <form class="contact-form" action="https://formspree.io/f/xqadneze" method="POST" autocomplete="off">
-        <div class="form-group">
-            <label for="name"><i class="fas fa-user"></i> Your Name</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your name">
-        </div>
-        <div class="form-group">
-            <input type="email" id="email" name="email" required placeholder="Enter your email">            <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
-
-        </div>
-        <div class="form-group">
-            <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Type your message here"></textarea>
-        </div>
-        <button type="submit" class="btn btn-info" style="width:100%; margin-top:1rem;">
-            <i class="fas fa-paper-plane"></i> Send Message
-        </button>
-    </form>
-    <p style="text-align:center; font-size:0.95rem; margin-top:0.5rem; color:var(--primary-dark);">
-        We respect your privacy. Your information will be kept confidential.
-    </p>
-</div>
-        </div>
-          <div class="confidentiality-notice">
+            <div class="contact-form-section">
+                <h2>Send Us a Message</h2>
+                <form class="contact-form" action="https://formspree.io/f/xqadneze" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Type your message here"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info" style="width:100%; margin-top:1rem;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                <p style="text-align:center; font-size:0.95rem; margin-top:0.5rem; color:var(--muted);">
+                    We respect your privacy. Your information will be kept confidential.
+                </p>
+            </div>
+            
+            <div class="confidentiality-notice">
                 <i class="fas fa-shield-alt"></i>
                 <div>
                     <h3>Your Privacy Matters</h3>
                     <p>All helplines listed provide confidential services. You don't need to give your name, and your call cannot be traced. These organizations are committed to protecting your privacy and providing non-judgmental support.</p>
                 </div>
             </div>
-
+        </div>
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>HopeConnect</h3>
+                    <h3>HIV Awareness</h3>
                     <p>Dedicated to HIV/AIDS awareness, prevention, support, and ending stigma in our communities.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/loveLifeNGO/info/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -241,14 +868,28 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 HopeConnect HIV/AIDS Awareness. All rights reserved. | This site provides information and referrals only.</p>
+                <p>&copy; 2023 HIV Awareness. All rights reserved. | This site provides information and referrals only.</p>
             </div>
         </div>
     </footer>
 
-    <script src="Script.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
