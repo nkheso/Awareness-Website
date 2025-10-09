@@ -121,7 +121,38 @@ p {
 .cta .btn:hover {
   background: #f8c8d6;
 }
-
+ /* About HIV Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .about-image {
+            flex: 1;
+            background-color: #f1eef0;
+            height: 350px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 18px;
+            background: linear-gradient(180deg, rgba(197,142,164,0.06), rgba(255,255,255,0.02)), url('assets/hiv-awareness.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(41,34,37,0.04);
+            overflow: hidden;
+        }
 /* Footer */
 footer {
   background: #222;
@@ -139,7 +170,7 @@ footer {
 }
  .faq-question {
             padding: 1.5rem;
-            background-color: rgb(36, 36, 151);
+            background-color: rgb(247, 180, 232);
             color: white;
             cursor: pointer;
             display: flex;
@@ -160,8 +191,8 @@ footer {
             max-height: 500px;
         }
 :root {
-            --primary-red: #e53935;
-            --primary-blue: #1a237e;
+            --primary-red: #d894b9;
+            --primary-blue: #ca1b72;
             --light-blue: #e8eaf6;
             --light-gray: #f5f5f5;
             --dark-gray: #424242;
@@ -191,42 +222,63 @@ footer {
             padding: 0 15px;
         }
  
-        /* Header & Navigation */
+        /* Header Styles */
         header {
-            background-color: var(--primary-blue);
-            box-shadow: var(--shadow);
+            background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
+            color: white;
+            padding: 18px 0;
+            box-shadow: 0 6px 24px rgba(40, 37, 40, 0.08);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            backdrop-filter: blur(4px);
         }
- 
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.2px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
-            justify-content: center;
-            flex-wrap: wrap;
         }
- 
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
         nav ul li a {
-            display: block;
-            padding: 15px 20px;
-            color: var(--white);
+            color: white;
             text-decoration: none;
-            transition: var(--transition);
+            font-weight: 600;
+            transition: all 0.18s ease;
+            padding: 6px 12px;
+            border-radius: 8px;
+            opacity: 0.95;
+            font-size: 15px;
         }
- 
+        
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
         }
- 
-        nav ul li a.active {
-            background-color: var(--primary-red);
-            font-weight: bold;
-        }
- 
         /* Main Header */
         main > header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #283593 100%);
+            background: linear-gradient( #f0d0f0 100%);
             color: var(--white);
             padding: 60px 0 40px;
             position: relative;
@@ -350,7 +402,7 @@ footer {
         }
  
         .method-card.expanded {
-            border-left-color: var(--primary-red);
+            border-left-color: var(--primary-pink);
         }
  
         .method-icon {
@@ -373,7 +425,7 @@ footer {
         }
  
         .method-card.expanded .expand-icon {
-            color: var(--primary-red);
+            color: palevioletred;
         }
  
         .card-details {
@@ -410,7 +462,7 @@ footer {
  
         .tabs {
             display: flex;
-            background-color: var(--primary-blue);
+            background-color: pink;
         }
  
         .tab {
@@ -612,7 +664,7 @@ footer {
  
         /* Contact Section */
          :root {
-            --primary: #2c3e50;     /* Dark blue - professional and trustworthy */
+            --primary: #dda4d6;     /* Dark blue - professional and trustworthy */
             --secondary: #e74c3c;   /* Red - attention-grabbing for health awareness */
             --accent: #3498db;      /* Blue - calm and reassuring */
         }
@@ -626,7 +678,7 @@ footer {
        
         body {
             line-height: 1.6;
-            color: #333;
+            color: #eca4e9;
             background-color: #f9f9f9;
         }
        
@@ -639,7 +691,7 @@ footer {
        
         /* Header */
         header {
-            background-color: var(--primary);
+            background-color: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -694,7 +746,7 @@ footer {
        
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            background:  linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
             color: white;
             text-align: center;
             padding: 4rem 1rem;
@@ -1001,11 +1053,11 @@ footer {
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(197, 143, 184, 0.1);
             font-size: 0.9rem;
             color: #bbb;
         }
-       
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -1159,443 +1211,3 @@ footer {
         transform: translateY(0);
       }
     }
- /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #bd9bc7;
-            --primary-dark: #bd9bc7;
-            --secondary: #bd9bc7;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --gray: #6c757d;
-            --success: #28a745;
-            --warning: #bd9bc7;
-            --danger: #bd9bc7;
-            --confidential: #bd9bc7;
-        }
-
-        body {
-            background-color: #f5f7fa;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Header Styles */
-        header {
-            background:linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
- 
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            font-size: 1.8rem;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover, nav a:focus {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        /* Main Content Styles */
-        main {
-            padding: 2rem 0;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .page-header p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Emergency Banner */
-        .emergency-banner {
-            background: linear-gradient(135deg, var(--warning), #ff8c00);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
-        }
-
-        .emergency-banner h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .emergency-number {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-            margin: 0.5rem 0;
-        }
-
-        /* Helplines Section */
-        .helplines-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .helplines-section {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .helpline-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .helpline-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .helpline-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .helpline-icon {
-            background: rgba(44, 120, 115, 0.1);
-            color: var(--primary);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .helpline-icon.emergency {
-            background: rgba(255, 193, 7, 0.2);
-            color: var(--warning);
-        }
-
-        .helpline-icon.support {
-            background: rgba(40, 167, 69, 0.2);
-            color: var(--success);
-        }
-
-        .helpline-title h3 {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-        }
-
-        .helpline-title p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .helpline-content {
-            margin-bottom: 1.5rem;
-        }
-
-        .helpline-content p {
-            margin-bottom: 1rem;
-        }
-
-        .helpline-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-            margin: 1rem 0;
-        }
-
-        .helpline-number.emergency {
-            color: var(--warning);
-        }
-
-        .helpline-hours {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-call {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-call:hover, .btn-call:focus {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-info {
-            background: rgba(44, 120, 115, 0.1);
-            color: var(--primary);
-        }
-
-        .btn-info:hover, .btn-info:focus {
-            background: rgba(44, 120, 115, 0.2);
-        }
-
-        /* Additional Resources */
-        .resources-section {
-            margin-top: 3rem;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .resources-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .resource-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .resource-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-        }
-
-        .resource-card p {
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-
-        .resource-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .resource-link:hover, .resource-link:focus {
-            text-decoration: underline;
-        }
-
-        /* Confidentiality Notice */
-        .confidentiality-notice {
-            background: rgba(232, 62, 140, 0.1);
-            border: 1px solid var(--confidential);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .confidentiality-notice i {
-            color: var(--confidential);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .confidentiality-notice h3 {
-            color: var(--confidential);
-            margin-bottom: 0.5rem;
-        }
-
-        .confidentiality-notice p {
-            color: var(--dark);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .footer-content {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--light);
-        }
-
-        .footer-section p, .footer-section a {
-            color: #adb5bd;
-            margin-bottom: 0.5rem;
-            display: block;
-            text-decoration: none;
-        }
-
-        .footer-section a:hover, .footer-section a:focus {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover, .social-links a:focus {
-            background: var(--primary);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
-            font-size: 0.9rem;
-        }
-
-        /* Skip to main content link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: var(--primary);
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
-            border-radius: 0 0 4px 4px;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Print styles */
-        @media print {
-            .btn, .social-links, nav {
-                display: none;
-            }
-            
-            .helpline-number {
-                color: black;
-                text-decoration: underline;
-            }
-        }
-    
