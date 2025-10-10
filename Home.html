@@ -6,15 +6,76 @@
     <title>HIV Awareness - Know the Facts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root{
-            --bg: #f7f5f6;
-            --text: #2f2f35;
-            --muted: #6b6b72;
-            --dusty-pink: #c58ea4; /* primary accent */
-            --dusty-pink-dark: #a86f84; /* hover/strong */
-            --accent-2: #6b7280; /* neutral slate */
-            --card-bg: #ffffff;
-        }
+        /* Hamburger Menu */
+     /* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 21px;
+  justify-content: space-between;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 101; /* ensures it's above other elements */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(197,142,164,0.98), rgba(168,111,132,0.98));
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+
+  nav ul.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 12px;
+  }
+}
+
 
         /* Base Styles */
         * {
@@ -350,6 +411,39 @@
             .header-content {
                 flex-direction: column;
                 text-align: center;
+                position: relative;
+            }
+            .hamburger {
+                display: flex !important;
+            }
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(90deg, rgba(197,142,164,0.98), rgba(168,111,132,0.98));
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                z-index: 99;
+            }
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            nav ul li a {
+                display: block;
+                padding: 12px 0;
+                font-size: 18px;
             }
             
             nav ul {
@@ -380,60 +474,148 @@
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" aria-label="Back to top">
+        <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+    </button>
+
+    <style>
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            transition: background 0.3s, color 0.3s;
+        }
+        #scrollTopBtn.pink {
+            background: var(--dusty-pink);
+            color: #fff;
+        }
+        #scrollTopBtn.white {
+            background: #fff;
+            color: var(--dusty-pink);
+            border: 2px solid var(--dusty-pink);
+        }
+        #scrollTopBtn .arrow-icon {
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        // Show/hide and style scroll-to-top button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        function updateScrollBtn() {
+            if (window.scrollY > 200) {
+                scrollTopBtn.style.display = 'flex';
+                // Detect background color
+                let pinkSections = document.querySelectorAll('header, .facts, footer');
+                let btnRect = scrollTopBtn.getBoundingClientRect();
+                let isOnPink = false;
+                pinkSections.forEach(section => {
+                    let rect = section.getBoundingClientRect();
+                    if (
+                        btnRect.bottom > rect.top &&
+                        btnRect.top < rect.bottom &&
+                        btnRect.right > rect.left &&
+                        btnRect.left < rect.right
+                    ) {
+                        isOnPink = true;
+                    }
+                });
+                if (isOnPink) {
+                    scrollTopBtn.classList.remove('pink');
+                    scrollTopBtn.classList.add('white');
+                } else {
+                    scrollTopBtn.classList.remove('white');
+                    scrollTopBtn.classList.add('pink');
+                }
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        }
+        window.addEventListener('scroll', updateScrollBtn);
+        window.addEventListener('resize', updateScrollBtn);
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon"><i class="fas fa-ribbon"></i></span>
-                    HIV Awareness
-                </div>
-                <nav>
-                    <ul>
-                         <li><a href="Index.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Prevention.html" >Prevention</a></li>
-            <li><a href="Symptoms.html">Symptoms</a></li>
-            <li><a href="Testing.html">Testing</a></li>
-             <li><a href="FAQs.html">FAQs</a></li>
-              <li><a href="Contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon"><i class="fas fa-ribbon"></i></span>
+        HIV Awareness
+      </div>
+
+      <!-- Hamburger Menu Button -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="prevention.html">Prevention</a></li>
+          <li><a href="symptoms.html">Symptoms</a></li>
+          <li><a href="testing.html">Testing</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="contact.html#contact-form">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ✅ Hamburger Menu Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevents any accidental link behavior
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  // Optional: close menu when a link is clicked (for mobile UX)
+  document.querySelectorAll("#nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  });
+});
+</script>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Know the Facts About HIV</h1>
             <p>Education is the first step in prevention. Learn how to protect yourself and others from HIV transmission.</p>
-            <a href="#testing" class="cta-button">Get Tested Today</a>
+            <a href="Testing.html" class="cta-button">Get Tested Today</a>
         </div>
     </section>
-
-    <!-- About HIV Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>What is HIV?</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>HIV (Human Immunodeficiency Virus) is a virus that attacks the body's immune system, specifically the CD4 cells (T cells), which help the immune system fight off infections. If left untreated, HIV reduces the number of CD4 cells in the body, making the person more likely to get infections or infection-related cancers.</p>
-                    <p>Over time, HIV can destroy so many of these cells that the body can't fight off infections and disease. These opportunistic infections or cancers take advantage of a very weak immune system and signal that the person has AIDS, the last stage of HIV infection.</p>
-                    <p>No effective cure currently exists for HIV. But with proper medical care, HIV can be controlled. People with HIV who get effective HIV treatment can live long, healthy lives and protect their partners.</p>
-                </div>
-                <div class="about-image">
-                    <!-- Background image will be displayed here -->
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <script>
+        // ...existing code...
+    </script>
    
-
     <!-- Facts Section -->
     <section id="facts" class="section facts">
         <div class="container">
