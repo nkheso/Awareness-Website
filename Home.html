@@ -461,8 +461,7 @@
         </div>
     </section>
 
-</body>
-</html><section class="hero">
+    <section class="hero">
     <div class="hero-text">
       <h2>Together We Rise</h2>
       <p>Empowering communities. Reducing stigma. Building hope for a brighter, healthier future.</p>
@@ -502,3 +501,14 @@
   <footer>
     <p>© 2025 Together We Rise | All Rights Reserved</p>
   </footer>
+
+  <script>
+    // Redirect to About page when user scrolls to bottom
+    window.addEventListener('scroll', function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            window.location.href = 'About.html'; // Change to your next page
+        }
+    });
+</script>
+</body>
+</html>

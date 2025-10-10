@@ -548,5 +548,13 @@
             });
         });
     </script>
+    <script>
+        // Redirect to Contact page when user scrolls to bottom
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                window.location.href = 'contact.html';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -733,6 +733,13 @@
                 toast.classList.remove('show');
             }, 3000);
         }
+        
+        // Redirect to next Symptoms when user scrolls to bottom
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                window.location.href = 'Symptoms.html'; // Change to your next page
+            }
+        });
     </script>
 </body>
 </html>

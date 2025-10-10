@@ -279,5 +279,13 @@
         </div>
        
     </div>
+    <script>
+    // Redirect to next page when user scrolls to bottom
+    window.addEventListener('scroll', function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            window.location.href = 'testing.html'; // Change to your next page
+        }
+    });
+</script>
 </body>
 </html>

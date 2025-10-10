@@ -359,6 +359,13 @@
         navMenu.classList.remove('active');
       });
     });
+    
+    // Redirect to Prevention page when user scrolls to bottom
+    window.addEventListener('scroll', function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            window.location.href = 'Prevention.html'; // Change to your next page
+        }
+    });
   </script>
 </body>
 </html>
