@@ -46,9 +46,9 @@
     }
     
     .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  display: flex;
+  align-items: center;
+  position: relative;
     }
     
     .logo {
@@ -88,12 +88,16 @@
     
     /* Hamburger Menu */
     .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      width: 30px;
-      height: 21px;
-      justify-content: space-between;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 21px;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 18px 20px 0 0;
     }
     
     .hamburger span {
@@ -166,22 +170,6 @@
       color: var(--muted);
     }
     
-    .learn-btn {
-      background-color: var(--dusty-pink);
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    
-    .learn-btn:hover {
-      background-color: var(--dusty-pink-dark);
-      transform: translateY(-2px);
-    }
-    
     /* Bottom Info */
     .bottom-info {
       display: flex;
@@ -232,9 +220,10 @@
     
     /* Responsive */
     @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
+          .hamburger {
+            display: flex !important;
+            z-index: 101;
+          }
       
       nav ul {
         position: fixed;
@@ -268,6 +257,11 @@
       .about-image {
         width: 100%;
         height: 300px;
+        min-height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: block;
       }
       
       .bottom-info {
@@ -302,7 +296,7 @@
             <li><a href="symptoms.html">Symptoms</a></li>
             <li><a href="testing.html">Testing</a></li>
             <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html#contact-form">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -325,7 +319,6 @@
           <p>HIV targets the body's CD4 cells (T cells), which help the immune system fight off infections. Without treatment, HIV reduces the number of CD4 cells, making the body more vulnerable to infections and diseases.</p>
           <p>Over time, HIV can destroy so many of these cells that the body can't fight off infections and disease. These opportunistic infections signal that the person has AIDS, the last stage of HIV infection.</p>
           <p>No effective cure currently exists for HIV. But with proper medical care, HIV can be controlled. People with HIV who get effective treatment can live long, healthy lives and protect their partners.</p>
-          <button class="learn-btn">Learn More</button>
         </div>
       </div>
 
@@ -342,8 +335,6 @@
     </div>
   </section>
 
- 
-
   <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -358,6 +349,83 @@
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
       });
+    });
+  </script>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" aria-label="Back to top">
+    <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+  </button>
+
+  <style>
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+      transition: background 0.3s, color 0.3s;
+    }
+    #scrollTopBtn.pink {
+      background: var(--dusty-pink);
+      color: #fff;
+    }
+    #scrollTopBtn.white {
+      background: #fff;
+      color: var(--dusty-pink);
+      border: 2px solid var(--dusty-pink);
+    }
+    #scrollTopBtn .arrow-icon {
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <script>
+    // Show/hide and style scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    function updateScrollBtn() {
+      if (window.scrollY > 200) {
+        scrollTopBtn.style.display = 'flex';
+        // Detect background color
+        let pinkSections = document.querySelectorAll('header, .facts, footer');
+        let btnRect = scrollTopBtn.getBoundingClientRect();
+        let isOnPink = false;
+        pinkSections.forEach(section => {
+          let rect = section.getBoundingClientRect();
+          if (
+            btnRect.bottom > rect.top &&
+            btnRect.top < rect.bottom &&
+            btnRect.right > rect.left &&
+            btnRect.left < rect.right
+          ) {
+            isOnPink = true;
+          }
+        });
+        if (isOnPink) {
+          scrollTopBtn.classList.remove('pink');
+          scrollTopBtn.classList.add('white');
+        } else {
+          scrollTopBtn.classList.remove('white');
+          scrollTopBtn.classList.add('pink');
+        }
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    }
+    window.addEventListener('scroll', updateScrollBtn);
+    window.addEventListener('resize', updateScrollBtn);
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
