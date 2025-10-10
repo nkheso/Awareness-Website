@@ -21,19 +21,19 @@
       box-sizing: border-box;
       font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     body {
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
+
     /* Header */
     header {
       background: linear-gradient(90deg, rgba(197,142,164,0.95), rgba(168,111,132,0.95));
@@ -44,35 +44,35 @@
       top: 0;
       z-index: 100;
     }
-    
+
     .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  display: flex;
+  align-items: center;
+  position: relative;
     }
-    
+
     .logo {
       font-size: 24px;
       font-weight: 700;
       display: flex;
       align-items: center;
     }
-    
+
     .logo-icon {
       margin-right: 10px;
       font-size: 32px;
     }
-    
+
     /* Navigation */
     nav ul {
       display: flex;
       list-style: none;
     }
-    
+
     nav ul li {
       margin-left: 25px;
     }
-    
+
     nav ul li a {
       color: white;
       text-decoration: none;
@@ -81,21 +81,25 @@
       border-radius: 8px;
       transition: all 0.18s ease;
     }
-    
+
     nav ul li a:hover, nav ul li a.active {
       background-color: rgba(255, 255, 255, 0.2);
     }
-    
+
     /* Hamburger Menu */
     .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      width: 30px;
-      height: 21px;
-      justify-content: space-between;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 21px;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 18px 20px 0 0;
     }
-    
+
     .hamburger span {
       display: block;
       height: 3px;
@@ -104,51 +108,51 @@
       border-radius: 3px;
       transition: all 0.3s ease;
     }
-    
+
     .hamburger.active span:nth-child(1) {
       transform: translateY(9px) rotate(45deg);
     }
-    
+
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
-    
+
     .hamburger.active span:nth-child(3) {
       transform: translateY(-9px) rotate(-45deg);
     }
-    
+
     /* Page Title */
     .page-title {
       text-align: center;
       margin: 60px 0 40px;
     }
-    
+
     .page-title h1 {
       font-size: 36px;
       color: var(--text);
       font-weight: 700;
       margin-bottom: 15px;
     }
-    
+
     .page-title .description {
       font-size: 18px;
       color: var(--muted);
       max-width: 700px;
       margin: 0 auto;
     }
-    
+
     /* Icon */
     .icon {
       text-align: center;
       margin: 30px 0;
     }
-    
+
     .icon svg {
       width: 60px;
       height: 60px;
       fill: var(--dusty-pink);
     }
-    
+
     /* Accordion */
     .accordion-section {
       margin-bottom: 20px;
@@ -156,7 +160,7 @@
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     }
-    
+
     .accordion-header {
       background-color: var(--card-bg);
       padding: 20px 25px;
@@ -169,40 +173,40 @@
       transition: all 0.3s ease;
       border-left: 4px solid var(--dusty-pink);
     }
-    
+
     .accordion-header:hover {
       background-color: #f9f9f9;
     }
-    
+
     .accordion-header::after {
       content: '\f078';
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
       transition: transform 0.3s ease;
     }
-    
+
     .accordion-section.active .accordion-header::after {
       transform: rotate(180deg);
     }
-    
+
     .accordion-content {
       background-color: var(--card-bg);
       padding: 0;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
+      transition: max-height 0.35s ease, padding 0.35s ease;
     }
-    
+
     .accordion-section.active .accordion-content {
       padding: 25px;
-      max-height: 2000px;
+      max-height: 2000px; /* generous */
     }
-    
+
     .accordion-content p {
       margin-bottom: 20px;
       color: var(--muted);
     }
-    
+
     /* Highlight Box */
     .highlight-box {
       background-color: #f9f7f8;
@@ -211,24 +215,24 @@
       margin: 20px 0;
       border-left: 4px solid var(--dusty-pink);
     }
-    
+
     .highlight-box h3 {
       color: var(--text);
       margin-bottom: 15px;
       font-size: 18px;
     }
-    
+
     .highlight-box ul {
       list-style: none;
       padding-left: 0;
     }
-    
+
     .highlight-box li {
       margin-bottom: 10px;
       padding-left: 20px;
       position: relative;
     }
-    
+
     .highlight-box li:before {
       content: "•";
       color: var(--dusty-pink);
@@ -236,15 +240,16 @@
       position: absolute;
       left: 0;
     }
-    
-    /* Testing Centers Grid */
-    .testing-centers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin: 30px 0;
+
+    /* Testing Centers Layout (used inside the "Find a Testing Center..." accordion) */
+    .testing-centers {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
-    
+
     .center-card {
       background-color: var(--card-bg);
       border-radius: 12px;
@@ -252,29 +257,31 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
       border-top: 4px solid var(--dusty-pink);
+      width: 340px;
+      text-align: left;
     }
-    
+
     .center-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
-    
+
     .center-card-header {
       background: linear-gradient(90deg, var(--dusty-pink), var(--dusty-pink-dark));
       color: white;
       padding: 15px 20px;
       font-weight: 600;
     }
-    
+
     .center-card-body {
       padding: 20px;
     }
-    
+
     .center-card-body p {
       margin-bottom: 20px;
       color: var(--muted);
     }
-    
+
     .center-card-link {
       display: inline-block;
       background-color: var(--dusty-pink);
@@ -285,12 +292,25 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-    
+
     .center-card-link:hover {
       background-color: var(--dusty-pink-dark);
       transform: translateY(-2px);
     }
-    
+
+    /* Remember Box (centered beneath the two cards) */
+    .remember-box {
+      background-color: #faf5f7;
+      border-left: 4px solid var(--dusty-pink);
+      padding: 15px 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin: 30px auto 0;
+      width: 80%;
+      max-width: 640px;
+    }
+
     /* Footer Message */
     .footer-message {
       text-align: center;
@@ -302,7 +322,7 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       border-top: 4px solid var(--dusty-pink);
     }
-    
+
     /* Footer */
     footer {
       background: linear-gradient(90deg, rgba(168,111,132,0.95), rgba(197,142,164,0.95));
@@ -310,32 +330,33 @@
       padding: 40px 0 20px;
       margin-top: 60px;
     }
-    
+
     .footer-content {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       margin-bottom: 30px;
     }
-    
+
     .footer-section {
       flex: 1;
       min-width: 250px;
       margin-bottom: 30px;
     }
-    
+
     .copyright {
       text-align: center;
       padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
-    
+
     /* Responsive */
     @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-      
+          .hamburger {
+            display: flex !important;
+            z-index: 101;
+          }
+
       nav ul {
         position: fixed;
         top: 80px;
@@ -349,35 +370,106 @@
         opacity: 0;
         transition: all 0.3s ease;
       }
-      
+
       nav ul.active {
         transform: translateY(0);
         opacity: 1;
       }
-      
+
       nav ul li {
         margin: 10px 0;
         width: 100%;
         text-align: center;
       }
-      
-      .testing-centers-grid {
-        grid-template-columns: 1fr;
+
+      .testing-centers {
+        flex-direction: column;
+        align-items: center;
       }
-      
-      .page-title h1 {
-        font-size: 28px;
-      }
-      
-      .accordion-header {
-        font-size: 18px;
-        padding: 15px 20px;
+
+      .center-card {
+        width: 90%;
       }
     }
   </style>
 </head>
-<body>
-  <!-- Header -->
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" aria-label="Back to top">
+    <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+  </button>
+
+  <style>
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+      transition: background 0.3s, color 0.3s;
+    }
+    #scrollTopBtn.pink {
+      background: var(--dusty-pink);
+      color: #fff;
+    }
+    #scrollTopBtn.white {
+      background: #fff;
+      color: var(--dusty-pink);
+      border: 2px solid var(--dusty-pink);
+    }
+    #scrollTopBtn .arrow-icon {
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <script>
+    // Show/hide and style scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    function updateScrollBtn() {
+      if (window.scrollY > 200) {
+        scrollTopBtn.style.display = 'flex';
+        // Detect background color
+        let pinkSections = document.querySelectorAll('header, .facts, footer');
+        let btnRect = scrollTopBtn.getBoundingClientRect();
+        let isOnPink = false;
+        pinkSections.forEach(section => {
+          let rect = section.getBoundingClientRect();
+          if (
+            btnRect.bottom > rect.top &&
+            btnRect.top < rect.bottom &&
+            btnRect.right > rect.left &&
+            btnRect.left < rect.right
+          ) {
+            isOnPink = true;
+          }
+        });
+        if (isOnPink) {
+          scrollTopBtn.classList.remove('pink');
+          scrollTopBtn.classList.add('white');
+        } else {
+          scrollTopBtn.classList.remove('white');
+          scrollTopBtn.classList.add('pink');
+        }
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    }
+    window.addEventListener('scroll', updateScrollBtn);
+    window.addEventListener('resize', updateScrollBtn);
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
   <header>
     <div class="container">
       <div class="header-content">
@@ -398,7 +490,7 @@
             <li><a href="symptoms.html">Symptoms</a></li>
             <li><a href="testing.html" class="active">Testing</a></li>
             <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html#contact-form">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -424,7 +516,7 @@
       </p>
     </div>
 
-    <!-- Accordion Section -->
+    <!-- Accordion Section: Importance of Testing -->
     <div class="accordion-section">
       <div class="accordion-header">Importance of Testing</div>
       <div class="accordion-content">
@@ -463,6 +555,7 @@
       </div>
     </div>
 
+    <!-- Accordion Section: Understanding ART -->
     <div class="accordion-section">
       <div class="accordion-header">Understanding ART (Antiretroviral Therapy)</div>
       <div class="accordion-content">
@@ -488,81 +581,42 @@
       </div>
     </div>
 
-   <!-- Find Testing Centers Section -->
+    <!-- Accordion Section: Find Testing Centers -->
     <div class="accordion-section">
       <div class="accordion-header">Find a Testing Center or Clinic Near You</div>
       <div class="accordion-content">
         <p>For confidential HIV testing and treatment services, visit these trusted resources:</p>
-        
-        <!-- Testing Centers Grid -->
-        <div class="testing-centers-grid">
+
+        <!-- Testing Centers (centered) -->
+        <div class="testing-centers">
           <div class="center-card">
             <div class="center-card-header">
               CDC HIV Testing Sites Locator
             </div>
             <div class="center-card-body">
-              <p>Find HIV testing locations near you using the CDC's official database of testing sites across the United States.</p>
-              <a href="https://gettested.cdc.gov/" target="_blank" class="center-card-link">Visit Website</a>
+              <p>Find HIV testing locations near you using the CDC's official database of testing sites across South Africa.</p>
+              <a href="https://www.better2know.com/en-za/clinics" target="_blank" class="center-card-link">Visit Website</a>
             </div>
           </div>
-          
+
           <div class="center-card">
             <div class="center-card-header">
               AIDS Healthcare Foundation
             </div>
             <div class="center-card-body">
               <p>Access HIV testing, prevention, and treatment services at AHF clinics worldwide. Many locations offer free testing.</p>
-              <a href="https://www.aidshealth.org/" target="_blank" class="center-card-link">Find a Clinic</a>
-            </div>
-          </div>
-          
-          <div class="center-card">
-            <div class="center-card-header">
-              Planned Parenthood
-            </div>
-            <div class="center-card-body">
-              <p>Get confidential HIV testing and counseling at Planned Parenthood health centers across the country.</p>
-              <a href="https://www.plannedparenthood.org/" target="_blank" class="center-card-link">Locate Center</a>
-            </div>
-          </div>
-          
-          <div class="center-card">
-            <div class="center-card-header">
-              Local Health Departments
-            </div>
-            <div class="center-card-body">
-              <p>Contact your city or county health department for information on local HIV testing and prevention services.</p>
-              <a href="https://www.naccho.org/membership/lhd-directory" target="_blank" class="center-card-link">Find Local Dept</a>
-            </div>
-          </div>
-          
-          <div class="center-card">
-            <div class="center-card-header">
-              Community Health Centers
-            </div>
-            <div class="center-card-body">
-              <p>Federally qualified health centers provide HIV testing and care regardless of ability to pay.</p>
-              <a href="https://findahealthcenter.hrsa.gov/" target="_blank" class="center-card-link">Search Centers</a>
-            </div>
-          </div>
-          
-          <div class="center-card">
-            <div class="center-card-header">
-              Pharmacy Testing Services
-            </div>
-            <div class="center-card-body">
-              <p>Many pharmacies now offer rapid HIV testing with results in 20 minutes. Check with your local pharmacy.</p>
-              <a href="https://www.cdc.gov/hiv/testing/index.html" target="_blank" class="center-card-link">Learn More</a>
+              <a href="https://freehivtest.org.za/" target="_blank" class="center-card-link">Find a Clinic</a>
             </div>
           </div>
         </div>
-        
-        <div class="highlight-box">
-          <p><strong>Remember:</strong> Knowing your HIV status is empowering. Testing and treatment save lives.</p>
+
+        <!-- Remember Box under the two centered cards -->
+        <div class="remember-box">
+          <strong>Remember:</strong> Knowing your HIV status is empowering. Testing and treatment save lives.
         </div>
       </div>
     </div>
-    
+
     <!-- Footer Message -->
     <div class="footer-message">
       💝 Your health matters. Testing is the first step to living well and protecting those you love.
@@ -573,12 +627,12 @@
     // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-    
+
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
     });
-    
+
     // Close menu when clicking on a link
     document.querySelectorAll('#nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
@@ -586,21 +640,19 @@
         navMenu.classList.remove('active');
       });
     });
-    
-    // Accordion functionality
+
+    // Accordion functionality: only one open at a time
     const accordionHeaders = document.querySelectorAll('.accordion-header');
-    
+
     accordionHeaders.forEach(header => {
       header.addEventListener('click', () => {
         const section = header.parentElement;
         const isActive = section.classList.contains('active');
-        
-        // Close all accordion sections
-        document.querySelectorAll('.accordion-section').forEach(s => {
-          s.classList.remove('active');
-        });
-        
-        // If the clicked section wasn't active, open it
+
+        // Close all
+        document.querySelectorAll('.accordion-section').forEach(s => s.classList.remove('active'));
+
+        // Toggle clicked
         if (!isActive) {
           section.classList.add('active');
         }
