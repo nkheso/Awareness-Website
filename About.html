@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About HIV & AIDS - HIV Awareness</title>
@@ -391,42 +396,42 @@
     }
   </style>
   <script>
-    // Show/hide and style scroll-to-top button
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    function updateScrollBtn() {
-      if (window.scrollY > 200) {
-        scrollTopBtn.style.display = 'flex';
-        // Detect background color
-        let pinkSections = document.querySelectorAll('header, .facts, footer');
-        let btnRect = scrollTopBtn.getBoundingClientRect();
-        let isOnPink = false;
-        pinkSections.forEach(section => {
-          let rect = section.getBoundingClientRect();
-          if (
-            btnRect.bottom > rect.top &&
-            btnRect.top < rect.bottom &&
-            btnRect.right > rect.left &&
-            btnRect.left < rect.right
-          ) {
-            isOnPink = true;
-          }
-        });
-        if (isOnPink) {
-          scrollTopBtn.classList.remove('pink');
-          scrollTopBtn.classList.add('white');
-        } else {
-          scrollTopBtn.classList.remove('white');
-          scrollTopBtn.classList.add('pink');
+  let scrollTimeout;
+  const delay = 50; // 0.5 seconds
+  const pageOrder = [
+    'Index.html',
+    'about.html',
+    'prevention.html',
+    'symptoms.html',
+    'testing.html',
+    'faqs.html',
+    'contact.html'
+     // replace with your 8th page filename
+  ];
+  
+  const currentPage = window.location.pathname.split('/').pop();
+
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      // Scroll to next page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        const nextIndex = pageOrder.indexOf(currentPage) + 1;
+        if (nextIndex < pageOrder.length) {
+          window.location.href = pageOrder[nextIndex];
         }
-      } else {
-        scrollTopBtn.style.display = 'none';
       }
-    }
-    window.addEventListener('scroll', updateScrollBtn);
-    window.addEventListener('resize', updateScrollBtn);
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
+
+      // Scroll to previous page
+      if (window.scrollY <= 10) {
+        const prevIndex = pageOrder.indexOf(currentPage) - 1;
+        if (prevIndex >= 0) {
+          window.location.href = pageOrder[prevIndex];
+        }
+      }
+    }, delay);
+  });
+</script>
+
 </body>
 </html>

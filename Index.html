@@ -682,6 +682,46 @@
                 navMenu.classList.remove('active');
             }
         });
+
+        
     </script>
+     <script>
+  let scrollTimeout;
+  const delay = 50; // 0.5 seconds
+  const pageOrder = [
+    'Index.html',
+    'about.html',
+    'prevention.html',
+    'symptoms.html',
+    'testing.html',
+    'faqs.html',
+    'contact.html'
+     // replace with your 8th page filename
+  ];
+  
+  const currentPage = window.location.pathname.split('/').pop();
+
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      // Scroll to next page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        const nextIndex = pageOrder.indexOf(currentPage) + 1;
+        if (nextIndex < pageOrder.length) {
+          window.location.href = pageOrder[nextIndex];
+        }
+      }
+
+      // Scroll to previous page
+      if (window.scrollY <= 10) {
+        const prevIndex = pageOrder.indexOf(currentPage) - 1;
+        if (prevIndex >= 0) {
+          window.location.href = pageOrder[prevIndex];
+        }
+      }
+    }, delay);
+  });
+</script>
+
 </body>
 </html>
