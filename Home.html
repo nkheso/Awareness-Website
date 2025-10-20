@@ -22,13 +22,13 @@
             --light-bg: #f8fafc;
             --dark-text: #1e293b;
             --muted-text: #64748b;
-            --hiv-red: #dc2626;
+            --hiv-red: #2a20be;
             --hiv-red-light: #fef2f2;
-            --medical-green: #16a34a;
+            --medical-green: #16a34a,;
             --medical-green-light: #f0fdf4;
             --medical-purple: #7c3aed;
             --medical-purple-light: #faf5ff;
-            --dusty-pink: #be185d;
+            --dusty-pink: #1a5f9e;
             --dusty-pink-light: #fdf2f8;
             --card-bg: #ffffff;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -130,7 +130,7 @@
         }
 
         .btn-red:hover {
-            background: #b91c1c;
+            background: #5362f0;
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
@@ -233,7 +233,7 @@
 
         nav a:hover, nav a.active {
             color: var(--primary-blue);
-            background-color: var(--primary-blue-light);
+            background-image: var(--primary-blue);
         }
 
         nav a.active:after {
@@ -273,9 +273,9 @@
             justify-content: center;
             overflow: hidden;
             text-align: center;
-           background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070');
- 
+           background:   linear-gradient(rgba(13, 30, 107, 0.8), rgba(18, 63, 131, 0.9)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070');
         }
+        
 
         .hero::before {
             content: "";
@@ -1770,7 +1770,7 @@
                 <a href="#about">About</a>
                 <a href="#symptoms">Symptoms</a>
                 <a href="#prevention">Prevention</a>
-                <a href="#testing">Testing</a>
+        
                 <a href="#faqs">FAQs</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -1823,7 +1823,55 @@
         </div>
     </section>
 
-    <!-- Did You Know Section -->
+   
+    <!-- About Section -->
+    <section id="about" class="bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Understanding HIV/AIDS</h2>
+                <p>Knowledge is the first step toward prevention, early detection, and effective treatment</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>What is HIV?</h2>
+                    <p><strong>HIV (Human Immunodeficiency Virus)</strong> is a virus that attacks the body's immune system. If left untreated, it can lead to AIDS (Acquired Immunodeficiency Syndrome), the most severe phase of HIV infection. However, with proper medical care, HIV can be controlled, and people with HIV can live long, healthy lives while protecting their partners.</p>
+                    <p>HIV attacks CD4 cells (T cells), which are crucial for fighting infections. Over time, HIV can destroy so many of these cells that the body can't fight off infections and disease. When this happens, HIV infection can lead to AIDS.</p>
+                    
+                    <h2>What is AIDS?</h2>
+                    <p><strong>AIDS (Acquired Immunodeficiency Syndrome)</strong> is the final and most serious stage of HIV infection. It occurs when the body's immune system is badly damaged because of the virus. Not everyone with HIV develops AIDS. With modern treatment, many people with HIV never progress to AIDS.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/assets/HIV+AWARENESS+Scan+me+Option+2020.webp">
+                </div>
+            </div>
+
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <div class="mission-icon blue">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide accurate, stigma-free information about HIV/AIDS and empower communities through education, testing, and support services.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon green">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>A world where HIV stigma no longer exists, everyone knows their status, and those living with HIV receive compassionate care and support.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon dark-blue">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Compassion, education, dignity, and science-based information guide everything we do to support individuals and communities affected by HIV/AIDS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Did You Know Section -->
     <section class="bg-light">
         <div class="container">
             <div class="did-you-know">
@@ -1854,54 +1902,6 @@
                         <div class="fact-number">5</div>
                         <p>HIV cannot be transmitted through casual contact, sharing utensils, or mosquito bites.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="bg-white">
-        <div class="container">
-            <div class="section-title">
-                <h2>Understanding HIV/AIDS</h2>
-                <p>Knowledge is the first step toward prevention, early detection, and effective treatment</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>What is HIV?</h2>
-                    <p><strong>HIV (Human Immunodeficiency Virus)</strong> is a virus that attacks the body's immune system. If left untreated, it can lead to AIDS (Acquired Immunodeficiency Syndrome), the most severe phase of HIV infection. However, with proper medical care, HIV can be controlled, and people with HIV can live long, healthy lives while protecting their partners.</p>
-                    <p>HIV attacks CD4 cells (T cells), which are crucial for fighting infections. Over time, HIV can destroy so many of these cells that the body can't fight off infections and disease. When this happens, HIV infection can lead to AIDS.</p>
-                    
-                    <h2>What is AIDS?</h2>
-                    <p><strong>AIDS (Acquired Immunodeficiency Syndrome)</strong> is the final and most serious stage of HIV infection. It occurs when the body's immune system is badly damaged because of the virus. Not everyone with HIV develops AIDS. With modern treatment, many people with HIV never progress to AIDS.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070" alt="Healthcare professionals discussing">
-                </div>
-            </div>
-
-            <div class="mission-cards">
-                <div class="mission-card">
-                    <div class="mission-icon blue">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To provide accurate, stigma-free information about HIV/AIDS and empower communities through education, testing, and support services.</p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-icon green">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>A world where HIV stigma no longer exists, everyone knows their status, and those living with HIV receive compassionate care and support.</p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-icon dark-blue">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Our Values</h3>
-                    <p>Compassion, education, dignity, and science-based information guide everything we do to support individuals and communities affected by HIV/AIDS.</p>
                 </div>
             </div>
         </div>
@@ -1961,7 +1961,7 @@
             
             <div class="text-center mt-20">
                 <p><strong>Important:</strong> Many people with HIV have no symptoms for years. The only way to know your status is to get tested.</p>
-                <a href="#testing" class="btn btn-primary mt-20">Learn About Testing</a>
+               
             </div>
         </div>
     </section>
@@ -1997,23 +1997,24 @@
                     </div>
                 </div>
                 <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front" style="background:linear-gradient(to bottom right, var(--medical-green), #15803d);">
-                            <div class="card-icon">🛡️</div>
-                            <h3>Condom Use</h3>
-                            <p>Consistent and correct condom usage</p>
-                            <p class="mt-20">Click to learn more</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="card-icon">🛡️</div>
-                            <h3>Condom Use</h3>
-                            <p>Condoms are highly effective at preventing HIV and other STIs when used correctly and consistently. Both external and internal condoms provide protection.</p>
-                        </div>
-                    </div>
-                </div>
+  <div class="flip-card-inner">
+    <div class="flip-card-front" style="background: linear-gradient(to bottom right, var(--medical-green), #0e0ae7); color: rgb(18, 114, 223);">
+      <div class="card-icon">🛡️</div>
+      <h3>Condom Use</h3>
+      <p>Consistent and correct condom usage</p>
+      <p class="mt-20">Click to learn more</p>
+    </div>
+    <div class="flip-card-back">
+      <div class="card-icon">🛡️</div>
+      <h3>Condom Use</h3>
+      <p>Condoms are highly effective at preventing HIV and other STIs when used correctly and consistently. Both external and internal condoms provide protection.</p>
+    </div>
+  </div>
+</div>
+
                 <div class="flip-card">
                     <div class="flip-card-inner">
-                        <div class="flip-card-front" style="background:linear-gradient(to bottom right, var(--hiv-red), #b91c1c);">
+                        <div class="flip-card-front" style="background:linear-gradient(to bottom right, var(--hiv-red), #0526e2);">
                             <div class="card-icon">💉</div>
                             <h3>PEP</h3>
                             <p>Emergency HIV prevention medication</p>
@@ -2082,24 +2083,7 @@
         </div>
     </section>
 
-    <!-- Testing Section -->
-    <section id="testing" class="testing-section">
-        <div class="container">
-            <div class="testing-hero">
-                <div class="testing-hero-icon">
-                    <i class="fas fa-stethoscope"></i>
-                </div>
-                <h1>HIV Testing</h1>
-                <p>Knowledge is power. Getting tested is the only way to know your HIV status. Testing is quick, confidential, and often free.</p>
-                <div class="search-box">
-                    <h3>Find Testing Near You</h3>
-                    <div class="search-form">
-                        <input type="text" class="search-input" placeholder="Enter your ZIP code or city">
-                        <button class="search-btn">Search</button>
-                    </div>
-                </div>
-            </div>
-
+ 
             <div class="section-title">
                 <h2>Types of HIV Tests</h2>
                 <p>Choose the testing method that works best for you</p>
@@ -2252,7 +2236,7 @@
                     <!-- Resource: Testing & Support -->
                     <article class="resource-item" data-type="testing support" data-name="Community Health Initiative">
                         <div class="resource-media" aria-hidden="true">
-                            <img src="https://images.unsplash.com/photo-1580281657523-2f0f35c9f5b7?auto=format&fit=crop&w=500&q=60" alt="health workers">
+                            <img src="/assets/HP_top_2000-2.png" alt="health workers">
                         </div>
                         <div class="resource-body">
                             <div class="resource-type">Testing & Support</div>
@@ -2273,7 +2257,7 @@
                     <!-- Resource: Treatment Center -->
                     <article class="resource-item" data-type="treatment" data-name="Regional HIV Care Clinic">
                         <div class="resource-media" aria-hidden="true">
-                            <img src="https://images.unsplash.com/photo-1580281657523-1a8b2d1a2d1f?auto=format&fit=crop&w=500&q=60" alt="clinic">
+                            <img src="/assets/SAHCS Full colour.png" alt="clinic">
                         </div>
                         <div class="resource-body">
                             <div class="resource-type">Treatment Center</div>
@@ -2315,7 +2299,7 @@
                     <!-- Resource: Mobile Testing -->
                     <article class="resource-item" data-type="testing" data-name="Rapid Test Mobile Unit">
                         <div class="resource-media" aria-hidden="true">
-                            <img src="https://images.unsplash.com/photo-1542736667-069246bdbc76?auto=format&fit=crop&w=500&q=60" alt="mobile testing">
+                            <img src="/assets/johnrae-treatment-ht.tmb-1920v.jpg" alt="mobile testing">
                         </div>
                         <div class="resource-body">
                             <div class="resource-type">Testing Center</div>
@@ -2632,7 +2616,7 @@
                 <p class="description">We'd love to hear from you. Fill in your details below and we'll get back to you soon.</p>
             </div>
 
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xkgvynrj" method="POST">
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqadneze" method="POST">
                 <label for="name"><i class="fas fa-user"></i> Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
